@@ -2,7 +2,7 @@
 This package intended to solve common front-end development tasks. Works best for psd/sketch to html projects and save you a lot of time setting up local environment
 
 ## Demo page
-https://projectname.surge.sh
+http://frontmaster.surge.sh/
 
 ## How to start
 * `yarn` - install npm dependencies
