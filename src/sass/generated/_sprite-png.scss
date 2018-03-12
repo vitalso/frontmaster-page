@@ -1,4 +1,31 @@
 $sprite: (
+	address: (
+		offset-x: -665px,
+		offset-y: -178px,
+		width: 17px,
+		height: 24px,
+		total-width: 683px,
+		total-height: 610px,
+		image: '../img/sprite.png'
+	),
+	arrow-left: (
+		offset-x: -191px,
+		offset-y: -342px,
+		width: 25px,
+		height: 46px,
+		total-width: 683px,
+		total-height: 610px,
+		image: '../img/sprite.png'
+	),
+	arrow-right: (
+		offset-x: -226px,
+		offset-y: -342px,
+		width: 24px,
+		height: 46px,
+		total-width: 683px,
+		total-height: 610px,
+		image: '../img/sprite.png'
+	),
 	bank-1: (
 		offset-x: -431px,
 		offset-y: -178px,
@@ -116,6 +143,15 @@ $sprite: (
 		total-height: 610px,
 		image: '../img/sprite.png'
 	),
+	email: (
+		offset-x: -542px,
+		offset-y: -97px,
+		width: 23px,
+		height: 17px,
+		total-width: 683px,
+		total-height: 610px,
+		image: '../img/sprite.png'
+	),
 	logo: (
 		offset-x: -431px,
 		offset-y: 0px,
@@ -170,6 +206,15 @@ $sprite: (
 		total-height: 610px,
 		image: '../img/sprite.png'
 	),
+	phone: (
+		offset-x: -547px,
+		offset-y: -235px,
+		width: 23px,
+		height: 23px,
+		total-width: 683px,
+		total-height: 610px,
+		image: '../img/sprite.png'
+	),
 	step-1: (
 		offset-x: -68px,
 		offset-y: -470px,
@@ -215,6 +260,15 @@ $sprite: (
 		total-height: 610px,
 		image: '../img/sprite.png'
 	),
+	timework: (
+		offset-x: -512px,
+		offset-y: -97px,
+		width: 20px,
+		height: 21px,
+		total-width: 683px,
+		total-height: 610px,
+		image: '../img/sprite.png'
+	),
 	why-icon-1: (
 		offset-x: -339px,
 		offset-y: -268px,
@@ -225,7 +279,7 @@ $sprite: (
 		image: '../img/sprite.png'
 	),
 	why-icon-2: (
-		offset-x: -191px,
+		offset-x: -265px,
 		offset-y: -268px,
 		width: 64px,
 		height: 64px,
@@ -243,7 +297,7 @@ $sprite: (
 		image: '../img/sprite.png'
 	),
 	why-icon-4: (
-		offset-x: -265px,
+		offset-x: -191px,
 		offset-y: -268px,
 		width: 64px,
 		height: 64px,
@@ -316,6 +370,15 @@ $sprite: (
 
 
 
+	.icon-address {
+		@include sprite(address)
+	}
+	.icon-arrow-left {
+		@include sprite(arrow-left)
+	}
+	.icon-arrow-right {
+		@include sprite(arrow-right)
+	}
 	.icon-bank-1 {
 		@include sprite(bank-1)
 	}
@@ -355,6 +418,9 @@ $sprite: (
 	.icon-credit-6 {
 		@include sprite(credit-6)
 	}
+	.icon-email {
+		@include sprite(email)
+	}
 	.icon-logo {
 		@include sprite(logo)
 	}
@@ -373,6 +439,9 @@ $sprite: (
 	.icon-materials-5 {
 		@include sprite(materials-5)
 	}
+	.icon-phone {
+		@include sprite(phone)
+	}
 	.icon-step-1 {
 		@include sprite(step-1)
 	}
@@ -387,6 +456,9 @@ $sprite: (
 	}
 	.icon-step-5 {
 		@include sprite(step-5)
+	}
+	.icon-timework {
+		@include sprite(timework)
 	}
 	.icon-why-icon-1 {
 		@include sprite(why-icon-1)

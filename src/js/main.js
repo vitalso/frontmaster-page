@@ -140,8 +140,8 @@ $(document).ready(function(){
   //////////
 
   function initSliders(){
-    var slickNextArrow = '<div class="slick-prev"><svg class="ico ico-back-arrow"><use xlink:href="img/sprite.svg#ico-back-arrow"></use></svg></div>';
-    var slickPrevArrow = '<div class="slick-next"><svg class="ico ico-next-arrow"><use xlink:href="img/sprite.svg#ico-next-arrow"></use></svg></div>'
+    var slickNextArrow = '<button type="button" class="slick-next"><i class="icon icon-arrow-right"></i></button>';
+    var slickPrevArrow = '<button type="button" class="slick-prev"><i class="icon icon-arrow-left"></i></button>'
 
     // General purpose sliders
     $('[js-slider]').each(function(i, slider){
@@ -172,13 +172,19 @@ $(document).ready(function(){
     // other individual sliders goes here
     $('.works__example').slick({
       slidesToShow: 4,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      arrows: true,
+      prevArrow: slickNextArrow,
+      nextArrow: slickPrevArrow
     })
 
     // Review carousel
     $('.reviews__carousel').slick({
       slidesToShow: 3,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      arrows: true,
+      prevArrow: slickNextArrow,
+      nextArrow: slickPrevArrow
     })
 
   }
