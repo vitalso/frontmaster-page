@@ -170,8 +170,15 @@ $(document).ready(function(){
     })
 
     // other individual sliders goes here
-    $('[js-myCustomSlider]').slick({
+    $('.works__example').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1
+    })
 
+    // Review carousel
+    $('.reviews__carousel').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1
     })
 
   }

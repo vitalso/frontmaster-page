@@ -1,0 +1,22 @@
+/* Steps work
+.steps
+  padding-top: 75px
+  padding-bottom: 50px
+
+  .wrapper
+    counter-reset: step-nubmer
+  
+    .why__item
+      counter-increment: step-number
+      position: relative
+      margin-top: 60px
+      &:before
+        content: '0' counter(step-number)
+        width: 100%
+        position: absolute
+        top: -20px
+        left: 5px
+        color: #e9eef3
+        font-size: 74px
+        letter-spacing: 10px
+        font-weight: 900

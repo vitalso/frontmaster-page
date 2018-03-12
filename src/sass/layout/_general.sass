@@ -16,7 +16,7 @@ ul
 body, html
   background: white
   color: $fontColor
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+  font-family: 'Roboto' , Helvetica, Arial, sans-serif
   font-size: 16px
   min-width: 320px
   max-width: 100%
@@ -26,29 +26,28 @@ body, html
   -moz-osx-font-smoothing: grayscale
 
 .page
+  padding-top: 90px
+
+.wrapper
   display: flex
-  flex-direction: column
-  min-height: 100vh
-  &__content
-    // used for sticky footer (flexbox way)
-    flex: 1 0 auto
-    display: flex
-    flex-direction: column
-    // header offset ex
-    padding-top: 100px
+  flex-direction: row
+  &.justify-between
+    justify-content: space-between
+  &.self-start
+    align-items: flex-start
 
 .container
-  max-width: 1200px
+  max-width: 1230px
   width: 100%
   margin-left: auto
   margin-right: auto
-  padding-left: 40px
-  padding-right: 40px
+  padding-left: 15px
+  padding-right: 15px
 
 +r($mobile)
   .container
-    padding-left: 20px
-    padding-right: 20px
+    padding-left: 15px
+    padding-right: 15px
 
 // REMOVE FOR PRODUCTION !
 .dev-bp-debug

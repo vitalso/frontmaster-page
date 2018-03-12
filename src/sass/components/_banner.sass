@@ -1,0 +1,131 @@
+/* Banner
+.banner
+  min-height: 600px
+  padding-top: 65px
+  background: url('../img/banner.jpg') no-repeat center top
+  background-size: cover
+
+  &__title
+    font-size: 45px
+    line-height: 55px
+    font-weight: 900
+    margin: 15px 0
+
+  &__describe
+  	max-width: 420px
+  	color: #fff
+  	line-height: 22px
+
+  &__describe-list
+    margin: 40px 0
+    padding: 0
+    font-size: 20px
+    line-height: 28px
+    li
+      display: block
+      margin-bottom: 20px
+      position: relative
+      padding-left: 52px
+      .icon-banner-list-icon
+        position: absolute
+        top: 0
+        left: 0
+
+/* Banner form
+.banner__cta
+  width: 100%
+  max-width: 380px
+  position: relative
+  padding: 20px 40px 60px 40px
+  background: rgba($colorBlue, .95)
+  color: #fff
+  &__title
+    font-size: 28px
+    line-height: 36px
+    font-weight: 900
+
+  h3
+    margin: 15px 0
+
+  &__subtitle
+    font-size: 20px
+    line-height: 30px
+    span
+      color: $colorOrange
+
+  .banner__form
+    margin: 15px 0
+    input[type='submit']
+      position: absolute
+      left: 0
+      bottom: 0
+  
+.banner__form__el
+  margin-bottom: 10px
+  input[type='checkbox']
+    opacity: 0
+    cursor: pointer
+    & + span
+      display: inline-block
+      vertical-align: middle
+      width: 20px
+      height: 20px
+      margin-left: -15px
+      cursor: pointer
+      border: 2px solid rgba($borderInput , .2)
+  label
+    font-size: 15px;
+    line-height: 25px;
+    display: inline-block
+    vertical-align: middle
+    max-width: 80%
+    padding-left: 15px
+
+  input[type='checkbox']:checked + span
+    background: url('../icons/checkbox.png') no-repeat center top
+
+  input[type='text']
+    width: 100%
+    height: 48px
+    margin: 11px 0
+    padding-left: 15px
+    color: #fff
+    font-size: 15px
+    background: transparent
+    border: 2px solid rgba($borderInput , .2)
+
+  input[type='submit']
+    width: 100%
+    height: 48px
+    color: #fff
+    background: $colorOrange
+    text-align: center
+    font-size: 15px
+    line-height: 18px
+    font-weight: 600
+    letter-spacing: .8px
+    border: none
+    cursor: pointer
+
+  &.form__el-size
+    label
+      font-size: 13px
+      line-height: 18px
+      vertical-align: top
+      a
+        color: $colorLightBlue
+        border-bottom: 1px solid $colorLightBlue
+        &:hover
+          border: none
+
+  ::-webkit-input-placeholder
+    color: #fff
+
+  ::-moz-placeholder
+    color: #fff
+
+  :-ms-input-placeholder
+    color: #fff
+
+  :-moz-placeholder
+    color: #fff

@@ -4,11 +4,11 @@
   top: 0
   right: 0
   left: 0
-  background: #f5f5f5
+  background: #fff
   &__wrapper
     display: flex
     align-items: center
-    height: 70px
+    height: 90px
 
   &__logo
     flex: 0 0 auto
@@ -19,16 +19,27 @@
     flex: 0 1 auto
     display: flex
     align-items: center
-    font-size: 18px
+    font-size: 15px
     margin: 0 auto
     padding: 0
     li
       display: inline-block
       margin-right: 30px
     a
+      color: $fontColor
       transition: color .25s $ease
       &:hover
         color: tomato
+
+  &__contact
+    .contact-phone
+      font-weight: 900
+      font-size: 17px
+      letter-spacing: .7px
+    a
+      font-size: 13px
+      color: $colorLink
+      border-bottom: 1px dashed $colorLink
 
   &__cta
     margin-left: auto

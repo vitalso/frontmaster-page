@@ -1,0 +1,47 @@
+// BANNER
+.banner
+  .container
+    .wrapper.justify-between.self-start
+
+      .banner__describe
+        h1.banner__title Монтаж фасада загородного дома под ключ
+        p Любого уровня сложности! <br> Различные материалы и системы!
+
+        ul.banner__describe-list
+          li
+            i.icon.icon-banner-list-icon
+            |Робота по договору
+          li
+            i.icon.icon-banner-list-icon
+            |Гарантия 2 года
+          li
+            i.icon.icon-banner-list-icon
+            |Россрочка на 12 месяцев <br> без переплат
+
+      .banner__cta
+        h3.banner__cta__title Только до 28 февраля
+        p.banner__cta__subtitle Замер + смета = 2 500 руб. <br> <span>дизайн-проект</span> в подарок!
+
+        form(action="").banner__form
+          .banner__form__el
+            input(type="checkbox" , value="Нужен монтажник" , id="checkbox-1")
+            span
+            label(for="checkbox-1") Нужен монтажник
+          .banner__form__el
+            input(type="checkbox" , value="Нужны материалы" , id="checkbox-2" , checked)
+            span
+            label(for="checkbox-2") Нужны материалы
+          .banner__form__el
+            input(type="checkbox" , value="Нужно утепление" , id="checkbox-3")
+            span
+            label(for="checkbox-3") Нужно утпеление
+          .banner__form__el
+            input(type="text" , placeholder="Номер телефона")
+          .banner__form__el.form__el-size
+            input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-4" , checked)
+            span
+            label(for="checkbox-4") Я согласен на <a href="#">обработку моих персональных данных</a>
+          .banner__form__el
+            input(type="submit" , value="ОТПРАВИТЬ ЗАЯВКУ")
+
+// END BANNER
