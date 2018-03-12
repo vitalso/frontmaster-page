@@ -62,15 +62,6 @@ $sprite: (
 		total-height: 610px,
 		image: '../img/sprite.png'
 	),
-	checkbox: (
-		offset-x: -512px,
-		offset-y: -97px,
-		width: 16px,
-		height: 14px,
-		total-width: 683px,
-		total-height: 610px,
-		image: '../img/sprite.png'
-	),
 	credit-1: (
 		offset-x: -220px,
 		offset-y: -398px,
@@ -234,7 +225,7 @@ $sprite: (
 		image: '../img/sprite.png'
 	),
 	why-icon-2: (
-		offset-x: -265px,
+		offset-x: -191px,
 		offset-y: -268px,
 		width: 64px,
 		height: 64px,
@@ -252,7 +243,7 @@ $sprite: (
 		image: '../img/sprite.png'
 	),
 	why-icon-4: (
-		offset-x: -191px,
+		offset-x: -265px,
 		offset-y: -268px,
 		width: 64px,
 		height: 64px,
@@ -345,9 +336,6 @@ $sprite: (
 	}
 	.icon-banner-list-icon {
 		@include sprite(banner-list-icon)
-	}
-	.icon-checkbox {
-		@include sprite(checkbox)
 	}
 	.icon-credit-1 {
 		@include sprite(credit-1)
