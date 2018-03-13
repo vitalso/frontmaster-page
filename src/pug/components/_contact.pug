@@ -7,24 +7,24 @@
         h1 Контактная <br> информация
 
       .contact__info__col.wow(data-animation-delay=".15s")
-        .contact__address
-          i.icon.icon-address
+        .contact__el
+          +icon('ico-location')
           p ул. Балтийская, д.5, Центр <br> Культуры и Бизнеса «Москва-Сокол», <br> г.Москва, 125190
 
-        .contact__address
-          i.icon.icon-address
+        .contact__el
+          +icon('ico-location')
           p д. Елизаветино, д. 202 <br> (67-й км автодороги А104 Москва-Дубна), <br> Московская обл., 141840
 
       .contact__info__col.wow(data-animation-delay=".3s")
-        .contact__address
-          i.icon.icon-phone
+        .contact__el.contact__el--phone
+          +icon('ico-phone')
           p <a href="tel:+74994908986#19"><strong>+7 (499) 490-89-86</strong></a> доб. 19 <br> <a href="tel:+74994908986#19"><strong>+7 (499) 490-89-86</strong></a>
 
-        .contact__address
-          i.icon.icon-email
+        .contact__el.contact__el--mail
+          +icon('ico-mail')
           p
             a(href="mailto: msk@frontmaster.su") msk@frontmaster.su
 
-        .contact__address
-          i.icon.icon-timework
+        .contact__el
+          +icon('ico-time')
           p ежедневно с 10:00 до 19:00

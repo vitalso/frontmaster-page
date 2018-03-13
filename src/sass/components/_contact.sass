@@ -5,6 +5,18 @@
   .container
     max-height: 180px
 
+  .ico
+    color: $colorOrange
+    &-location
+      font-size: 22px
+    &-phone
+      font-size: 20px
+    &-mail
+      font-size: 16px
+    &-time
+      font-size: 19px
+
+
   &__info
     padding: 60px 68px 30px 68px
     background: #fff
@@ -12,11 +24,11 @@
     justify-content: space-between
     align-items: self-start
     transform: translate(0 , -134px)
-    
+
     h1
       margin-top: 0
 
-  .contact__address
+  .contact__el
     font-size: 15px
     line-height: 27px
     margin-bottom: 30px
@@ -30,12 +42,18 @@
     strong
       font-size: 17px
       font-weight: 900
+    &--phone
+      a
+        transition: .25s $ease
+        &:hover
+          color: $colorOrangeHover
 
-    a
-      color: #2f57a3
-      transition: all .25s ease
-      border-bottom: 1px solid #2f57a3
+    &--mail
+      a
+        color: #2f57a3
+        transition: all .25s ease
+        border-bottom: 1px solid #2f57a3
 
-      &:hover
-        color: $colorOrangeHover
-        border-color: transparent
+        &:hover
+          color: $colorOrangeHover
+          border-color: transparent
