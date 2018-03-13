@@ -7,53 +7,25 @@ $(document).ready(function(){
   var _window = $(window);
   var _document = $(document);
 
-  // BREAKPOINT SETTINGS
-  var bp = {
-    mobileS: 375,
-    mobile: 568,
-    tablet: 768,
-    desktop: 992,
-    wide: 1336,
-    hd: 1680
-  }
-
-  var easingSwing = [.02, .01, .47, 1]; // default jQuery easing for anime.js
-
   ////////////
   // READY - triggered when PJAX DONE
   ////////////
   function pageReady(){
     legacySupport();
-    updateHeaderActiveClass();
     initHeaderScroll();
 
     initPopups();
     initSliders();
     initScrollMonitor();
     initMasks();
-    initLazyLoad();
 
     // development helper
     _window.on('resize', debounce(setBreakpoint, 200))
 
-    // AVAILABLE in _components folder
-    // copy paste in main.js and initialize here
-
-    // initTeleport();
-    // parseSvg();
-    // revealFooter();
-    // _window.on('resize', throttle(revealFooter, 100));
   }
 
   // this is a master function which should have all functionality
   pageReady();
-
-
-  // some plugins work best with onload triggers
-  _window.on('load', function(){
-    // your functions
-  })
-
 
   //////////
   // COMMON
@@ -65,7 +37,7 @@ $(document).ready(function(){
 
     // Viewport units buggyfill
     window.viewportUnitsBuggyfill.init({
-      force: true,
+      force: false,
       refreshDebounceWait: 150,
       appendToBody: true
     });
@@ -97,22 +69,13 @@ $(document).ready(function(){
     _window.on('scroll', throttle(function(e) {
       var vScroll = _window.scrollTop();
       var header = $('.header').not('.header--static');
-      var headerHeight = header.height();
-      var firstSection = _document.find('.page__content div:first-child()').height() - headerHeight;
-      var visibleWhen = Math.round(_document.height() / _window.height()) >  2.5
-
-      if (visibleWhen){
-        if ( vScroll > headerHeight ){
-          header.addClass('is-fixed');
-        } else {
-          header.removeClass('is-fixed');
-        }
-        if ( vScroll > firstSection ){
-          header.addClass('is-fixed-visible');
-        } else {
-          header.removeClass('is-fixed-visible');
-        }
+      
+      if ( vScroll > 20 ){
+        header.addClass('is-fixed');
+      } else {
+        header.removeClass('is-fixed');
       }
+
     }, 10));
   }
 
@@ -126,18 +89,6 @@ $(document).ready(function(){
   function closeMobileMenu(){
     $('[js-hamburger]').removeClass('is-active');
     $('.mobile-navi').removeClass('is-active');
-  }
-
-  // SET ACTIVE CLASS IN HEADER
-  // * could be removed in production and server side rendering when header is inside barba-container
-  function updateHeaderActiveClass(){
-    $('.header__menu li').each(function(i,val){
-      if ( $(val).find('a').attr('href') == window.location.pathname.split('/').pop() ){
-        $(val).addClass('is-active');
-      } else {
-        $(val).removeClass('is-active')
-      }
-    });
   }
 
   //////////
@@ -325,110 +276,6 @@ $(document).ready(function(){
       }, 100));
     });
 
-  }
-
-
-  //////////
-  // LAZY LOAD
-  //////////
-  function initLazyLoad(){
-    _document.find('[js-lazy]').Lazy({
-      threshold: 500,
-      enableThrottle: true,
-      throttle: 100,
-      scrollDirection: 'vertical',
-      effect: 'fadeIn',
-      effectTime: 350,
-      // visibleOnly: true,
-      // placeholder: "data:image/gif;base64,R0lGODlhEALAPQAPzl5uLr9Nrl8e7...",
-      onError: function(element) {
-          console.log('error loading ' + element.data('src'));
-      },
-      beforeLoad: function(element){
-        // element.attr('style', '')
-      }
-    });
-  }
-
-  //////////
-  // BARBA PJAX
-  //////////
-
-  Barba.Pjax.Dom.containerClass = "page";
-
-  var FadeTransition = Barba.BaseTransition.extend({
-    start: function() {
-      Promise
-        .all([this.newContainerLoading, this.fadeOut()])
-        .then(this.fadeIn.bind(this));
-    },
-
-    fadeOut: function() {
-      var deferred = Barba.Utils.deferred();
-
-      anime({
-        targets: this.oldContainer,
-        opacity : .5,
-        easing: easingSwing, // swing
-        duration: 300,
-        complete: function(anim){
-          deferred.resolve();
-        }
-      })
-
-      return deferred.promise
-    },
-
-    fadeIn: function() {
-      var _this = this;
-      var $el = $(this.newContainer);
-
-      $(this.oldContainer).hide();
-
-      $el.css({
-        visibility : 'visible',
-        opacity : .5
-      });
-
-      anime({
-        targets: "html, body",
-        scrollTop: 0,
-        easing: easingSwing, // swing
-        duration: 150
-      });
-
-      anime({
-        targets: this.newContainer,
-        opacity: 1,
-        easing: easingSwing, // swing
-        duration: 300,
-        complete: function(anim) {
-          triggerBody()
-          _this.done();
-        }
-      });
-    }
-  });
-
-  // set barba transition
-  Barba.Pjax.getTransition = function() {
-    return FadeTransition;
-  };
-
-  Barba.Prefetch.init();
-  Barba.Pjax.start();
-
-  Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
-
-    pageReady();
-    closeMobileMenu();
-
-  });
-
-  // some plugins get bindings onNewPage only that way
-  function triggerBody(){
-    $(window).scroll();
-    $(window).resize();
   }
 
   //////////

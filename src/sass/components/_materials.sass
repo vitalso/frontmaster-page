@@ -21,15 +21,18 @@
     &__description
       font-size: 14px
       line-height: 24px
-      display: none;
+      opacity: 0
+      height: 0
       transition: opacity .25s $ease
 
-    &:hover .materials__item__info
-      width: 114%
-      left: -7%
-      border-color: $grayColor
-      position: absolute
-      z-index: 1
+    &:hover
+      .materials__item__info
+        width: 114%
+        left: -7%
+        border-color: $grayColor
+        position: absolute
+        z-index: 1
 
       .materials__item__description
-        display: block
+        opacity: 1
+        height: auto
