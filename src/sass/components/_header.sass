@@ -1,18 +1,21 @@
 /* HEADER
 .header
-  position: absolute
+  position: fixed
   top: 0
   right: 0
   left: 0
   background: #fff
+  z-index: 2
   &__wrapper
     display: flex
     align-items: center
     height: 90px
+    transition: height .25s $ease
+  &.is-fixed .header__wrapper
+    height: 60px
 
   &__logo
     flex: 0 0 auto
-    font-size: 35px
     padding-right: 30px
 
   &__menu
@@ -22,14 +25,22 @@
     font-size: 15px
     margin: 0 auto
     padding: 0
+    align-self: stretch;
     li
+      height: 100%
       display: inline-block
       margin-right: 30px
     a
+      display: flex
+      height: 100%
+      align-items: center
       color: $fontColor
       transition: color .25s $ease
+      border-bottom: 4px solid transparent
+      &.is-active
+        border-color: $colorOrange
       &:hover
-        color: tomato
+        color: $colorOrange
 
   &__contact
     .contact-phone
@@ -39,7 +50,11 @@
     a
       font-size: 13px
       color: $colorLink
+      transition: all .25s $ease
       border-bottom: 1px dashed $colorLink
+      &:hover
+        color: $colorOrange
+        border-bottom: none
 
   &__cta
     margin-left: auto

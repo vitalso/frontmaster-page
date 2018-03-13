@@ -5,13 +5,36 @@
     .wrapper
 
       .calculate__form
+        .banner__form__el.position-relative
+          select(name="")
+            option(value="Загородный дом") Загородный дом
+            option(value="Котедж") Котедж
+            option(value="Вилла") Вилла
+            option(value="Особняк") Особняк
+          .select__arrow
+            i.icon.icon-select-arrow
+        .banner__form__row
+          .banner__form__el
+            input(type="text" , placeholder="Площадь фасада").form__el-custom-size
+            span кв.м
+          .banner__form__el.position-relative
+            select(name="")
+              option(value="Материал") Материал
+              option(value="Дерево") Дерево
+              option(value="Кирпич") Кирпич
+              option(value="Штукатурка") Штукатурка
+            .select__arrow
+              i.icon.icon-select-arrow
         .banner__form__el
-          input(type="checkbox" , value="Нужно утепление" , id="checkbox-1")
+          input(type="checkbox" , value="Нужно утепление" , id="checkbox-5")
           span
-          label(for="checkbox-1") Нужно утепление
+          label(for="checkbox-5") Нужно утепление
+        .banner__form__result.text-center
+          p.form__result-title Стоимость: <strong>от 40 000 рублей</strong>
+          p.form__result-subtitle В кредит от 3600 рублей в месяц
         .banner__form__el.form__el-size
-          input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-2" , checked)
+          input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-6" , checked)
           span
-          label(for="checkbox-2") Я согласен на <a href="#">обработку моих персональных данных</a>
+          label(for="checkbox-6") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
         .banner__form__el
           input(type="submit" , value="ОТПРАВИТЬ ЗАЯВКУ")

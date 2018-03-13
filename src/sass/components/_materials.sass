@@ -3,8 +3,33 @@
   padding: 75px 0
 
   &__item
+    width: 100%
     max-width: 240px
-    margin-top: 20px
+    position: relative
+    cursor: pointer
 
-    &-icon + p
-      font-weight: 600
+    &__info
+      padding-top: 20px
+      background: rgba(255, 255, 255, .96)
+      border: 6px solid transparent
+
+    &-icon
+      z-index: 1
+      p
+        font-weight: 600
+
+    &__description
+      font-size: 14px
+      line-height: 24px
+      display: none;
+      transition: opacity .25s $ease
+
+    &:hover .materials__item__info
+      width: 114%
+      left: -7%
+      border-color: $grayColor
+      position: absolute
+      z-index: 1
+
+      .materials__item__description
+        display: block

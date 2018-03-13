@@ -71,6 +71,11 @@ $(document).ready(function(){
     });
   }
 
+  // Examples work compare(before/after)
+  $('.slide__compare').twentytwenty({
+    no_overlay: true
+  })
+
 
   // Prevent # behavior
 	_document
@@ -174,6 +179,7 @@ $(document).ready(function(){
       slidesToShow: 4,
       slidesToScroll: 1,
       arrows: true,
+      draggable: false,
       prevArrow: slickNextArrow,
       nextArrow: slickPrevArrow
     })
@@ -232,6 +238,22 @@ $(document).ready(function(){
   			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
   		}
   	});
+
+    // Popup with video review from YouTube
+    $('.review__play').magnificPopup({
+      disableOn: 700,
+      type: 'iframe',
+      mainClass: 'mfp-fade',
+      removalDelay: 160,
+      preloader: false,
+
+      fixedContentPos: true
+    });
+
+    // Popup callback
+    $('.contact-callback , .personal__data').magnificPopup({
+      type: 'inline'
+    });
   }
 
   function closeMfp(){

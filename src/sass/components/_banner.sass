@@ -59,12 +59,20 @@
       position: absolute
       left: 0
       bottom: 0
+
+.banner__form__row
+  display: flex
+  justify-content: space-between
+  .banner__form__el
+    max-width: 49%
   
 .banner__form__el
   margin-bottom: 10px
   input[type='checkbox']
     opacity: 0
     cursor: pointer
+    &:hover + span
+      border: 2px solid rgba($borderInput , 1)
     & + span
       display: inline-block
       vertical-align: middle
@@ -73,6 +81,9 @@
       margin-left: -15px
       cursor: pointer
       border: 2px solid rgba($borderInput , .2)
+      transition: all .25s $ease
+      &:hover
+        border: 2px solid rgba($borderInput , 1)
   label
     font-size: 15px;
     line-height: 25px;
@@ -84,15 +95,46 @@
   input[type='checkbox']:checked + span
     background: url('../img/checkbox.png') no-repeat center top
 
-  input[type='text']
+  input[type='text'] , select
     width: 100%
     height: 48px
     margin: 11px 0
     padding-left: 15px
     color: #fff
     font-size: 15px
-    background: transparent
+    background-color: transparent
+    transition: border .25s $ease
     border: 2px solid rgba($borderInput , .2)
+    &:focus
+      border: 2px solid rgba($borderInput , 1)
+
+    &.form__el-custom-size
+      width: 169px
+      margin-right: 10px
+
+  select
+    min-width: 215px
+    margin: 11px 0 0 0
+    padding-right: 15px
+    border-radius: 0
+    cursor: pointer
+    /* for FF */
+    -moz-appearance: none
+    text-indent: 0.01px
+    text-overflow: ''
+    /* for IE */
+    -ms-appearance: none
+    appearance: none!important
+  .select__arrow
+    position: absolute
+    top: 11px
+    right: 0
+    width: 48px
+    height: 48px
+    text-align: center
+    line-height: 48px
+    background: $colorSecondaryBlue
+    cursor: pointer
 
   input[type='submit']
     width: 100%
@@ -106,6 +148,9 @@
     letter-spacing: .8px
     border: none
     cursor: pointer
+    transition: background .25s $ease
+    &:hover
+      background: $colorOrangeHover
 
   &.form__el-size
     label
@@ -114,8 +159,10 @@
       vertical-align: top
       a
         color: $colorLightBlue
+        transition: all .25s $ease
         border-bottom: 1px solid $colorLightBlue
         &:hover
+          color: $colorOrange
           border: none
 
   ::-webkit-input-placeholder
@@ -129,3 +176,17 @@
 
   :-moz-placeholder
     color: #fff
+
+.banner__form__result
+  padding: 10px 0 20px 0
+  p
+    margin: 10px 0
+  .form__result-title
+    font-size: 24px
+    line-height: 31px
+  
+  .form__result-title strong
+    font-weight: 900
+  .form__result-subtitle
+    font-size: 18px
+    color: $colorOrange
