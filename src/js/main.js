@@ -69,7 +69,7 @@ $(document).ready(function(){
     _window.on('scroll', throttle(function(e) {
       var vScroll = _window.scrollTop();
       var header = $('.header').not('.header--static');
-      
+
       if ( vScroll > 20 ){
         header.addClass('is-fixed');
       } else {
@@ -128,30 +128,48 @@ $(document).ready(function(){
     // other individual sliders goes here
 
     // materials carousel
-    /*$('.steps__carousel').slick({
-      slidesToShow: 5,
-      arrows: false,
-      infinite: false,
-      prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow,
-      responsive: [
-        {
-          breakpoint: 1120,
-          settings: {
-            arrows: true,
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            slidesToShow: 1
-          }
-        }
-      ]
-    })*/
+    // $('.materials__carousel').slick({
+    //   slidesToShow: 5,
+    //   arrows: false,
+    //   infinite: false,
+    //   prevArrow: slickNextArrow,
+    //   nextArrow: slickPrevArrow,
+    //   responsive: [
+    //     {
+    //       breakpoint: 1120,
+    //       settings: {
+    //         arrows: true,
+    //         slidesToShow: 4,
+    //         slidesToScroll: 1
+    //       }
+    //     },
+    //     {
+    //       breakpoint: 480,
+    //       settings: {
+    //         arrows: false,
+    //         slidesToShow: 1
+    //       }
+    //     }
+    //   ]
+    // })
+
+    var swiper = new Swiper ('.materials__carousel', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "materials__item",
+      direction: 'horizontal',
+      // loop: true,
+      watchOverflow: true,
+      // setWrapperSize: true,
+      spaceBetween: 0,
+      slidesPerView: 'auto',
+      // normalizeSlideIndex: true,
+      // centeredSlides: true,
+      freeMode: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
 
     // work example carousel
     $('.works__example').slick({
@@ -344,7 +362,7 @@ $(document).ready(function(){
   // Google Maps API
   function initMap() {
     var coordinates = {lat: 55.807846, lng: 37.512125},
-    
+
         map = new google.maps.Map(document.getElementById('map'), {
             center: coordinates,
             zoom: 16,

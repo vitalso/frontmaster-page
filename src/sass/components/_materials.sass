@@ -1,14 +1,22 @@
 /* Materials variant
 .materials
   padding: 75px 0
-
+  &__carousel
+    overflow: visible
   &__item
-    width: 100%
-    max-width: 240px
+    display: flex
+    flex-direction: column
+    // width: 100%
+    // max-width: 240px
+    // min-width: 240px
+    flex: 0 0 240px
     position: relative
     cursor: pointer
 
     &__info
+      flex: 1 1 auto
+      display: flex
+      flex-direction: column
       padding-top: 20px
       background: rgba(255, 255, 255, .96)
       border: 6px solid transparent
@@ -19,6 +27,8 @@
         font-weight: 600
 
     &__description
+      // align btn to slide bottom
+      margin-top: auto
       font-size: 14px
       line-height: 24px
       opacity: 0
@@ -47,7 +57,7 @@
         left: auto
         border-color: transparent
         position: relative
-    
+
     &__item__description
       opacity: 1
       height: auto
