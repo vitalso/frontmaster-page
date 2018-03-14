@@ -55,6 +55,40 @@ $(document).ready(function(){
   ////////
   // FORMS
 
+  // Banner form
+  $(".banner__form").validate({
+    rules: {
+      phone: "required"
+    },
+    messages: {
+      phone: "Введите номер телефона"
+    }
+  });
+
+  // Calculate form
+  $(".calculate__form").validate({
+    rules: {
+      house: "required",
+      square: "required",
+      material: "required"
+    },
+    messages: {
+      house: "Выбирите тип дома",
+      square: "Введите площадь дома",
+      material: "Выбирите метериал"
+    }
+  });
+
+  // Project form
+  $(".project__cta__form").validate({
+    rules: {
+      phone: "required"
+    },
+    messages: {
+      phone: "Введите номер телефона"
+    }
+  });
+
 
   /////////////////////
   // REGISTRATION FORM

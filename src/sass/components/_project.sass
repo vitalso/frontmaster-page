@@ -30,12 +30,28 @@
         color: $colorOrange
 
     &__form
-      max-width: 560px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      input[type='text']
+      max-width: 560px
+      margin: 0 auto
+      display: flex
+      justify-content: space-between
+      align-items: self-start
+      input[type='tel']
         width: 300px
+        margin-top: 0
       input[type='submit']
         width: 240px
+
+/* Responsive for _project component
++r($desktop)
+
++r($tablet)
+  .project
+    padding-right: 15px
+    padding-left: 15px
+    .project__cta
+      &__title
+        font-size: 32px
+      &__subtitle
+        font-size: 20px
+
++r($mobile)

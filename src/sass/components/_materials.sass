@@ -26,13 +26,34 @@
       transition: opacity .25s $ease
 
     &:hover
+      z-index: 2
       .materials__item__info
         width: 114%
         left: -7%
         border-color: $grayColor
         position: absolute
-        z-index: 1
 
       .materials__item__description
         opacity: 1
         height: auto
+
++r($min-desktop)
+  .materials
+    &__item__info
+      border-width: 0
+    &__item:hover
+      .materials__item__info
+        width: 100%
+        left: auto
+        border-color: transparent
+        position: relative
+    
+    &__item__description
+      opacity: 1
+      height: auto
+
++r($desktop)
+
++r($tablet)
+
++r($mobile)

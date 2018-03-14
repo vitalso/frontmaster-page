@@ -4,27 +4,23 @@
     h1.text-center.color-white.wow Расчет стоимости монтажа
     .wrapper
 
-      .calculate__form.wow(data-animation-delay=".1s")
+      form(action="#").calculate__form.wow(data-animation-delay=".1s")
         .banner__form__el.position-relative
-          select(name="")
+          select(name="house")
             option(value="Загородный дом") Загородный дом
             option(value="Котедж") Котедж
             option(value="Вилла") Вилла
             option(value="Особняк") Особняк
-          .select__arrow
-            i.icon.icon-select-arrow
         .banner__form__row
           .banner__form__el
-            input(type="text" , placeholder="Площадь фасада").form__el-custom-size
+            input(type="text", name="square" , placeholder="Площадь фасада").form__el-custom-size
             span кв.м
           .banner__form__el.position-relative
-            select(name="")
+            select(name="material")
               option(value="Материал") Материал
               option(value="Дерево") Дерево
               option(value="Кирпич") Кирпич
               option(value="Штукатурка") Штукатурка
-            .select__arrow
-              i.icon.icon-select-arrow
         .banner__form__el
           input(type="checkbox" , value="Нужно утепление" , id="checkbox-5")
           span

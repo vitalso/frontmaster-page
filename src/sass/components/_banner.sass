@@ -95,7 +95,7 @@
   input[type='checkbox']:checked + span
     background: url('../img/checkbox.png') no-repeat center top
 
-  input[type='text'] , select
+  input[type='text'] , input[type='tel'] , input[type='email']
     width: 100%
     height: 48px
     margin: 11px 0
@@ -111,30 +111,6 @@
     &.form__el-custom-size
       width: 169px
       margin-right: 10px
-
-  select
-    min-width: 215px
-    margin: 11px 0 0 0
-    padding-right: 15px
-    border-radius: 0
-    cursor: pointer
-    /* for FF */
-    -moz-appearance: none
-    text-indent: 0.01px
-    text-overflow: ''
-    /* for IE */
-    -ms-appearance: none
-    appearance: none!important
-  .select__arrow
-    position: absolute
-    top: 11px
-    right: 0
-    width: 48px
-    height: 48px
-    text-align: center
-    line-height: 48px
-    background: $colorSecondaryBlue
-    cursor: pointer
 
   input[type='submit']
     width: 100%
@@ -190,3 +166,36 @@
   .form__result-subtitle
     font-size: 18px
     color: $colorOrange
+
+/* Responsive for _banner component
++r($desktop)
+  .banner
+
++r($tablet)
+  .banner
+    &__title
+      font-size: 45px
+      line-height: 55px
+
+    &__describe
+      max-width: 340px
+
+    &__describe-list
+      font-size: 16px
+      line-height: 24px
+
+    &__cta
+      max-width: 330px
+      padding-right: 30px
+      padding-left: 30px
+
+      &__title
+        font-size: 24px
+        line-height: 36px
+
+      &__subtitle
+        font-size: 18px
+        line-height: 28px
+
++r($mobile)
+  .banner

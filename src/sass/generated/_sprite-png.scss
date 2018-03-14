@@ -197,15 +197,6 @@ $sprite: (
 		total-height: 600px,
 		image: '../img/sprite.png'
 	),
-	select-arrow: (
-		offset-x: -512px,
-		offset-y: -97px,
-		width: 18px,
-		height: 11px,
-		total-width: 683px,
-		total-height: 600px,
-		image: '../img/sprite.png'
-	),
 	step-1: (
 		offset-x: -329px,
 		offset-y: -268px,
@@ -372,9 +363,6 @@ $sprite: (
 	}
 	.icon-play-icon {
 		@include sprite(play-icon)
-	}
-	.icon-select-arrow {
-		@include sprite(select-arrow)
 	}
 	.icon-step-1 {
 		@include sprite(step-1)

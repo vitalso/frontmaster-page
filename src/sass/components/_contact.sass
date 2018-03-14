@@ -24,6 +24,9 @@
     justify-content: space-between
     align-items: self-start
     transform: translate(0 , -134px)
+    &__col
+      &:first-child
+        max-width: 250px
 
     h1
       margin-top: 0
@@ -57,3 +60,26 @@
         &:hover
           color: $colorOrangeHover
           border-color: transparent
+
+/* Responsive for _contact component
++r($desktop)
+  .contact
+    .contact__info
+      padding: 10px 30px 30px 30px
+      display: block
+      &__col
+        display: inline-block
+        vertical-align: top
+        &:first-child
+          display: block
+          max-width: none
+          text-align: center
+        h1
+          font-size: 32px
+          margin-bottom: 10px
+        &:last-child
+          float: right
+
++r($tablet)
+
++r($mobile)

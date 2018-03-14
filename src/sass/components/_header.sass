@@ -61,21 +61,22 @@
     padding-left: 30px
 
   &__hamburger
-    // display: none
+    display: none
     padding-left: 20px
 
 
-+r($desktop)
++r($min-desktop)
   .header
-    &__cta
-      display: none
+    &__menu li
+      margin-right: 10px
 
-+r($tablet)
++r($desktop)
   .header
     &__menu
       display: none
-    &__hamburger
+    &__contact
       margin-left: auto
+    &__hamburger
       display: block
 
 +r($mobile)

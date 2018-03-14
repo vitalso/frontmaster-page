@@ -126,13 +126,57 @@ $(document).ready(function(){
     })
 
     // other individual sliders goes here
+
+    // materials carousel
+    /*$('.steps__carousel').slick({
+      slidesToShow: 5,
+      arrows: false,
+      infinite: false,
+      prevArrow: slickNextArrow,
+      nextArrow: slickPrevArrow,
+      responsive: [
+        {
+          breakpoint: 1120,
+          settings: {
+            arrows: true,
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            slidesToShow: 1
+          }
+        }
+      ]
+    })*/
+
+    // work example carousel
     $('.works__example').slick({
       slidesToShow: 4,
       slidesToScroll: 1,
       arrows: true,
       draggable: false,
       prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow
+      nextArrow: slickPrevArrow,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            slidesToShow: 1
+          }
+        }
+      ]
     })
 
     // Review carousel
@@ -141,7 +185,23 @@ $(document).ready(function(){
       slidesToScroll: 1,
       arrows: true,
       prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow
+      nextArrow: slickPrevArrow,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            slidesToShow: 1
+          }
+        }
+      ]
     })
 
   }
@@ -215,6 +275,9 @@ $(document).ready(function(){
   // UI
   ////////////
 
+  // Select
+  $('select').selectric();
+
   // textarea autoExpand
   _document
     .one('focus.autoExpand', '.ui-group textarea', function(){
@@ -277,6 +340,27 @@ $(document).ready(function(){
     });
 
   }
+
+  // Google Maps API
+  function initMap() {
+    var coordinates = {lat: 55.807846, lng: 37.512125},
+    
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: coordinates,
+            zoom: 16,
+            disableDefaultUI: false,
+            scrollwheel: false
+        }),
+
+        image = 'img/map-marker.png',
+        marker = new google.maps.Marker({
+            position: coordinates,
+            map: map,
+            icon: image
+        });
+  }
+
+  initMap();
 
   //////////
   // DEVELOPMENT HELPER
