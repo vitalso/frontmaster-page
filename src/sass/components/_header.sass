@@ -11,6 +11,12 @@
     align-items: center
     height: 90px
     transition: height .25s $ease
+  &.is-blue
+    background: #334e9a
+    .header__logo , .header__contact
+      opacity: 0
+    .hamburger-inner , .hamburger--squeeze .hamburger-inner:after
+      background: #fff
   &.is-fixed .header__wrapper
     height: 60px
 
@@ -37,7 +43,7 @@
       color: $fontColor
       transition: color .25s $ease
       border-bottom: 4px solid transparent
-      &.is-active
+      &.active-link
         border-color: $colorOrange
       &:hover
         color: $colorOrange
@@ -81,5 +87,48 @@
 
 +r($mobile)
   .header
-    &__logo
-      font-size: 30px
+    &__hamburger
+      margin-left: auto
+
+// MOBILE NAVI
+.mobile-navi
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: #334e9a
+  padding-top: 70px
+  opacity: 0
+  display: flex
+  flex-direction: column
+  z-index: 9
+  pointer-events: all
+  transform: translate3d(0,-100%,0)
+  transition: .25s $ease
+  &.is-active
+    opacity: 1
+    pointer-events: all
+    transform: translate3d(0,0,0)
+  &__wrapper
+    flex: 1 0 auto
+    display: flex
+    flex-direction: column
+    overflow-y: scroll
+    padding: 0 30px
+  &__menu
+    list-style: none
+    flex: 0 1 auto
+    font-size: 24px
+    font-weight: 600
+    color: #fff
+    margin: 0
+    padding: 35px 0
+    li
+      display: block
+      line-height: 62px
+    a
+      display: inline-block
+      transition: color .25s $ease
+      &:hover
+        color: $colorYellow

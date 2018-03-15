@@ -5,12 +5,20 @@ header.header
       a(href="#").header__logo
         i.icon.icon-logo
       ul.header__menu
-        - var list = ["О нас", "Материалы", "Расчет монтажа", "Наши работы" , "Кредит" , "Контакты"]
-          each item in list
-            li
-              a.header__menu-link(href="#")=item
+        li
+          a(href="#about").header__menu-link О нас
+        li
+          a(href="#source").header__menu-link Материалы
+        li
+          a(href="#calculate").header__menu-link Расчет монтажа
+        li
+          a(href="#works").header__menu-link Наши работы
+        li
+          a(href="#credit").header__menu-link Кредит
+        li
+          a(href="#contact").header__menu-link Контакты
 
-      .header__contact
+      .header__contact.mobile-hidden
         .contact-phone +7 (499) 490-89-86
         a(href="#callback").contact-callback Заказать обратный звонок
       
@@ -20,3 +28,20 @@ header.header
             .hamburger-inner
         
 // HEADER :: END
+
+// Mobile nav
+.mobile-navi
+  .mobile-navi__wrapper
+    ul.mobile-navi__menu
+      li
+        a(href="#about") О нас
+      li
+        a(href="#source") Материалы
+      li
+        a(href="#calculate") Расчет монтажа
+      li
+        a(href="#works") Наши работы
+      li
+        a(href="#credit") Кредит
+      li
+        a(href="#contact") Контакты

@@ -54,8 +54,13 @@ $(document).ready(function(){
     .on('click', '[href="#"]', function(e) {
   		e.preventDefault();
   	})
-    .on('click', 'a[href^="#section"]', function() { // section scroll
+    .on('click', 'a[href^="#"]', function() { // section scroll
       var el = $(this).attr('href');
+      $('a[href^="#"]').removeClass('active-link');
+      $(this).addClass('active-link');
+      $('[js-hamburger]').removeClass('is-active');
+      $('.header').removeClass('is-blue');
+      $('.mobile-navi').removeClass('is-active');
       $('body, html').animate({
           scrollTop: $(el).offset().top}, 1000);
       return false;
@@ -83,11 +88,13 @@ $(document).ready(function(){
   // HAMBURGER TOGGLER
   _document.on('click', '[js-hamburger]', function(){
     $(this).toggleClass('is-active');
+    $('.header').toggleClass('is-blue');
     $('.mobile-navi').toggleClass('is-active');
   });
 
   function closeMobileMenu(){
     $('[js-hamburger]').removeClass('is-active');
+    $('.header').removeClass('is-blue');
     $('.mobile-navi').removeClass('is-active');
   }
 
@@ -127,32 +134,7 @@ $(document).ready(function(){
 
     // other individual sliders goes here
 
-    // materials carousel
-    // $('.materials__carousel').slick({
-    //   slidesToShow: 5,
-    //   arrows: false,
-    //   infinite: false,
-    //   prevArrow: slickNextArrow,
-    //   nextArrow: slickPrevArrow,
-    //   responsive: [
-    //     {
-    //       breakpoint: 1120,
-    //       settings: {
-    //         arrows: true,
-    //         slidesToShow: 4,
-    //         slidesToScroll: 1
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 480,
-    //       settings: {
-    //         arrows: false,
-    //         slidesToShow: 1
-    //       }
-    //     }
-    //   ]
-    // })
-
+    // Materials carousel
     var swiper = new Swiper ('.materials__carousel', {
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
@@ -161,10 +143,29 @@ $(document).ready(function(){
       watchOverflow: true,
       // setWrapperSize: true,
       spaceBetween: 0,
-      slidesPerView: 'auto',
+      slidesPerView: 2,
       // normalizeSlideIndex: true,
       // centeredSlides: true,
       freeMode: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+
+    // Steps of work carousel
+    var swiper = new Swiper ('.steps__carousel', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "why__item",
+      direction: 'horizontal',
+      // loop: true,
+      watchOverflow: true,
+      // setWrapperSize: true,
+      slidesPerView: 3,
+      spaceBetween: 0,
+      // normalizeSlideIndex: true,
+      // centeredSlides: true,
+      freeMode: false,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -184,6 +185,7 @@ $(document).ready(function(){
           breakpoint: 768,
           settings: {
             arrows: true,
+            draggable: true,
             slidesToShow: 2
           }
         },
@@ -213,9 +215,9 @@ $(document).ready(function(){
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 568,
           settings: {
-            arrows: false,
+            arrows: true,
             slidesToShow: 1
           }
         }

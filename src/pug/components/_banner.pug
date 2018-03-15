@@ -7,7 +7,7 @@
         h1.banner__title.wow Монтаж фасада загородного дома под ключ
         p.wow(data-animation-delay=".1s") Любого уровня сложности! <br> Различные материалы и системы!
 
-        ul.banner__describe-list
+        ul.banner__describe-list.mobile-hidden
           li.wow(data-animation-delay=".2s")
             i.icon.icon-banner-list-icon
             |Робота по договору
@@ -17,8 +17,10 @@
           li.wow(data-animation-delay=".4s")
             i.icon.icon-banner-list-icon
             |Россрочка на 12 месяцев <br> без переплат
+        .mobile-show
+          a(href="#").btn-primary ОТПРАВИТЬ ЗАЯВКУ
 
-      .banner__cta.wow(data-animation-delay=".7s" data-animation-class="wowFadeRight")
+      .banner__cta.mobile-hidden.wow(data-animation-delay=".7s" data-animation-class="wowFadeRight")
         h3.banner__cta__title Только до 28 февраля
         p.banner__cta__subtitle Замер + смета = 2 500 руб. <br> <span>дизайн-проект</span> в подарок!
 

@@ -28,6 +28,7 @@
         transition: opacity .25s $ease       
         opacity: 0
     img
+      max-width: 100%
       transition: opacity .25s $ease
       opacity: .65
 
@@ -38,3 +39,7 @@
         background: transparent
         &:after
           opacity: 1
+
++r($mobile)
+  .reviews__carousel
+    padding: 0 50px

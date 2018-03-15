@@ -11,9 +11,28 @@
   top: 50%
   margin-top: -23px
   background: transparent
+  z-index: 2
 
   &.slick-prev
     left: -92px
 
   &.slick-next
     right: -65px
+
++r($tablet)
+  .works
+
+    &__example
+      .twentytwenty-handle
+        display: none
+
+  .slick-arrow.slick-prev
+    left: 0
+
+  .slick-arrow.slick-next
+    right: 0
+
+  .slide__compare
+    img
+      &:nth-child(2)
+        display: none
