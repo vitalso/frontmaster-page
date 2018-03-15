@@ -2,6 +2,9 @@
 .why
   padding: 75px 0
   background: $grayColor
+  .wrapper
+    // padding-left: 3.3%
+    // padding-right: 3.3%
 
 h1
   margin: 30px 0
@@ -13,13 +16,19 @@ h1
   text-align: center
 
 .why__item
+  flex: 0 0 20%
   max-width: 240px
-  margin-top: 20px
+  margin-top: 10px
   font-size: 15px
   line-height: 27px
 
   &:nth-child(3) &-icon
     line-height: 125px
+
+  p
+    padding-left: 10px
+    padding-right: 10px
+    margin-top: 20px
 
   &-icon
     display: flex
@@ -40,6 +49,24 @@ h1
         font-size: 51px
       &-why-5
         font-size: 61px
+      &-step-2
+        font-size: 58px
+      &-step-3
+        font-size: 66px
+      &-step-4
+        font-size: 60px
+      &-step-5
+        font-size: 62px
+      &-credit-1
+        font-size: 53px
+      &-credit-2
+        font-size: 66px
+      &-credit-3
+        font-size: 51px
+      &-credit-5
+        font-size: 51px
+      &-credit-6
+        font-size: 68px
 
 /* Responsive issue for _why component
 +r($desktop)
@@ -52,7 +79,7 @@ h1
       max-width: 150px
       font-size: 14px
       line-height: 24px
-  
+
   h1
     font-size: 32px
 

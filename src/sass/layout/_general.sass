@@ -39,17 +39,22 @@ body, html
     align-items: center
 
 .container
-  max-width: 1230px
+  max-width: 1320px
   width: 100%
   margin-left: auto
   margin-right: auto
-  padding-left: 15px
-  padding-right: 15px
+  padding-left: 60px
+  padding-right: 60px
+
++r($tablet)
+  .container
+    padding-left: 40px
+    padding-right: 40px
 
 +r($mobile)
   .container
-    padding-left: 15px
-    padding-right: 15px
+    padding-left: 30px
+    padding-right: 30px
 
 // REMOVE FOR PRODUCTION !
 .dev-bp-debug

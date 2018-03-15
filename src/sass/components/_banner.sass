@@ -63,10 +63,16 @@
 .banner__form__row
   display: flex
   justify-content: space-between
+  align-items: flex-start
   .banner__form__el
     max-width: 49%
-  
+
+.banner__form-cta
+  margin-top: 20px
+
 .banner__form__el
+  display: flex
+  align-items: center
   margin-bottom: 10px
   input[type='checkbox']
     opacity: 0
@@ -81,19 +87,24 @@
       margin-left: -15px
       cursor: pointer
       border: 2px solid rgba($borderInput , .2)
+      background: url('../img/checkbox.png') no-repeat center top
+      background-size: 0 100%
       transition: all .25s $ease
       &:hover
         border: 2px solid rgba($borderInput , 1)
   label
-    font-size: 15px;
-    line-height: 25px;
+    flex: 1 1 auto
+    width: 100%
+    font-size: 15px
+    line-height: 25px
     display: inline-block
     vertical-align: middle
     max-width: 80%
     padding-left: 15px
+    cursor: pointer
 
   input[type='checkbox']:checked + span
-    background: url('../img/checkbox.png') no-repeat center top
+    background-size: 100% 100%
 
   input[type='text'] , input[type='tel'] , input[type='email']
     width: 100%
@@ -154,13 +165,13 @@
     color: #fff
 
 .banner__form__result
-  padding: 10px 0 20px 0
+  padding: 7px 0 20px 0
   p
     margin: 10px 0
   .form__result-title
     font-size: 24px
     line-height: 31px
-  
+
   .form__result-title strong
     font-weight: 900
   .form__result-subtitle

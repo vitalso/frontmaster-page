@@ -22,26 +22,27 @@
 
   &__logo
     flex: 0 0 auto
-    padding-right: 30px
+    padding-right: 20px
 
   &__menu
-    flex: 0 1 auto
+    flex: 1 1 auto
     display: flex
     align-items: center
     font-size: 15px
-    margin: 0 auto
+    margin: 0 20px 0 20px
     padding: 0
-    align-self: stretch;
+    align-self: stretch
     li
+      // flex: 1 1 auto
       height: 100%
       display: inline-block
-      margin-right: 30px
+      margin: 0 15px
     a
       display: flex
       height: 100%
       align-items: center
       color: $fontColor
-      transition: color .25s $ease
+      transition: .25s $ease
       border-bottom: 4px solid transparent
       &.active-link
         border-color: $colorOrange
@@ -49,6 +50,7 @@
         color: $colorOrange
 
   &__contact
+    margin-left: auto
     .contact-phone
       font-weight: 900
       font-size: 17px

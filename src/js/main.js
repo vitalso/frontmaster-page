@@ -54,17 +54,15 @@ $(document).ready(function(){
     .on('click', '[href="#"]', function(e) {
   		e.preventDefault();
   	})
-    .on('click', 'a[href^="#"]', function() { // section scroll
+    .on('click', '.header__menu a', function() {
+      closeMobileMenu();
       var el = $(this).attr('href');
-      $('a[href^="#"]').removeClass('active-link');
+      $(this).parent().siblings().find('a').removeClass('active-link');
       $(this).addClass('active-link');
-      $('[js-hamburger]').removeClass('is-active');
-      $('.header').removeClass('is-blue');
-      $('.mobile-navi').removeClass('is-active');
       $('body, html').animate({
           scrollTop: $(el).offset().top}, 1000);
       return false;
-    })
+    });
 
 
   // HEADER SCROLL
@@ -84,6 +82,34 @@ $(document).ready(function(){
     }, 10));
   }
 
+  // UPDATE HEADER MENU ANCHORS
+  // Cache selectors
+  var topMenu = $(".header__menu"),
+  // All list items
+  menuItems = topMenu.find("a"),
+  // Anchors corresponding to menu items
+  scrollItems = menuItems.map(function(){
+    var item = $($(this).attr("href"));
+    if ( item.length ) { return item; }
+  });
+
+  // Bind to scroll
+  _window.on('scroll', throttle(function(){
+    // Get container scroll position
+    var topMenuHeight = topMenu.outerHeight()
+    var fromTop = $(this).scrollTop() + 1;
+
+    // Get id of current scroll item
+    var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+    });
+    // Get the id of the current element
+    cur = cur[cur.length-1];
+    var id = cur && cur.length ? cur[0].id : "";
+    // Set/remove active class
+    menuItems.removeClass("active-link").filter("[href='#"+id+"']").addClass("active-link");
+  }, 20));
 
   // HAMBURGER TOGGLER
   _document.on('click', '[js-hamburger]', function(){
@@ -232,9 +258,12 @@ $(document).ready(function(){
 
   function initPopups(){
     // Magnific Popup
-    var startWindowScroll = 0;
-    $('[js-popup]').magnificPopup({
-      type: 'inline',
+    var mfpCloseBtn = '<button class="mfp-close"><svg class="ico ico-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#ico-close"></use></svg></button>'
+
+    // video play
+    $('.review__play').magnificPopup({
+      // disableOn: 700,
+      type: 'iframe',
       fixedContentPos: true,
       fixedBgPos: true,
       overflowY: 'auto',
@@ -242,48 +271,39 @@ $(document).ready(function(){
       preloader: false,
       midClick: true,
       removalDelay: 300,
-      mainClass: 'popup-buble',
+      mainClass: 'popup-fade',
       callbacks: {
         beforeOpen: function() {
-          startWindowScroll = _window.scrollTop();
+          // startWindowScroll = _window.scrollTop();
           // $('html').addClass('mfp-helper');
-        },
-        close: function() {
-          // $('html').removeClass('mfp-helper');
-          _window.scrollTop(startWindowScroll);
         }
-      }
+      },
+      patterns: {
+        youtube: {
+          index: 'youtube.com/',
+          id: 'v=', // String that splits URL in a two parts, second part should be %id%
+          // Or null - full URL will be returned
+          // Or a function that should return %id%, for example:
+          // id: function(url) { return 'parsed id'; }
+          src: '//www.youtube.com/embed/%id%?autoplay=1&controls=0&showinfo=0' // URL that will be set as a source for iframe.
+        }
+      },
+      closeMarkup: mfpCloseBtn
     });
 
-    $('[js-popup-gallery]').magnificPopup({
-  		delegate: 'a',
-  		type: 'image',
-  		tLoading: 'Загрузка #%curr%...',
-  		mainClass: 'popup-buble',
-  		gallery: {
-  			enabled: true,
-  			navigateByImgClick: true,
-  			preload: [0,1]
-  		},
-  		image: {
-  			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-  		}
-  	});
-
-    // Popup with video review from YouTube
-    $('.review__play').magnificPopup({
-      disableOn: 700,
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
-      preloader: false,
-
-      fixedContentPos: true
-    });
 
     // Popup callback
     $('.contact-callback , .personal__data').magnificPopup({
-      type: 'inline'
+      type: 'inline',
+      fixedContentPos: true,
+      fixedBgPos: true,
+      overflowY: 'auto',
+      closeBtnInside: true,
+      preloader: false,
+      midClick: true,
+      mainClass: 'popup-fade',
+      removalDelay: 300,
+      closeMarkup: mfpCloseBtn
     });
   }
 
@@ -346,17 +366,17 @@ $(document).ready(function(){
           'animation-delay': delay,
           'visibility': 'visible'
         });
-      }, 100, {
+      }, 150, {
         'leading': true
       }));
-      elWatcher.exitViewport(throttle(function() {
-        $(el).removeClass(animationClass);
-        $(el).css({
-          'animation-name': 'none',
-          'animation-delay': 0,
-          'visibility': 'hidden'
-        });
-      }, 100));
+      // elWatcher.exitViewport(throttle(function() {
+      //   $(el).removeClass(animationClass);
+      //   $(el).css({
+      //     'animation-name': 'none',
+      //     'animation-delay': 0,
+      //     'visibility': 'hidden'
+      //   });
+      // }, 100));
     });
 
   }
