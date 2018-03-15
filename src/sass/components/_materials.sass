@@ -23,7 +23,8 @@
 
     &-icon
       z-index: 1
-      p
+      & + p
+        min-height: 36px
         font-weight: 600
 
     &__description
@@ -39,6 +40,7 @@
       z-index: 2
       .materials__item__info
         width: 114%
+        top: 0
         left: -7%
         border-color: $grayColor
         position: absolute
@@ -46,6 +48,14 @@
       .materials__item__description
         opacity: 1
         height: auto
+
+.swiper-button-prev
+  left: -30px
+  background-image: url('../img/icon-arrow-left.png')
+
+.swiper-button-next
+  right: -30px
+  background-image: url('../img/icon-arrow-right.png')
 
 +r($min-wide)
   .materials

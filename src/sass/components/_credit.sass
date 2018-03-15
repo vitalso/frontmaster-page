@@ -41,6 +41,10 @@
     justify-content: center;
 
 /* Responsive for _credit component
++r(1200)
+  .bank__item
+    max-width: 160px
+
 +r($desktop)
 
 +r($tablet)
@@ -61,7 +65,9 @@
 
   .bank
     .wrapper
-      flex-flow: row wrap
-      justify-content: space-around
+      display: block
+      column-count: 3
+    &__item
+      max-width: 215px
 
 +r($mobile)

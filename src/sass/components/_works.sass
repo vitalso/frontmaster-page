@@ -19,18 +19,40 @@
   &.slick-next
     right: -65px
 
++r(1200)
+  .works__example
+    padding-left: 50px
+    padding-right: 50px
+  .works__example-slide
+    max-width: 250px
+    margin-right: 25px
+  .slick-arrow
+
+    &.slick-prev
+      left: -50px
+
+    &.slick-next
+      right: -50px
+
 +r($tablet)
+  .works__example-slide
+    max-width: 270px
+    margin-left: 15px
+    margin-right: 15px
   .works
+    .twentytwenty-container img
+      position: relative
+      top: auto
 
     &__example
       .twentytwenty-handle
         display: none
 
   .slick-arrow.slick-prev
-    left: 0
+    left: -30px
 
   .slick-arrow.slick-next
-    right: 0
+    right: -30px
 
   .slide__compare
     img
