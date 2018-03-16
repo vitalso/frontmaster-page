@@ -24,6 +24,10 @@
     flex: 0 0 auto
     padding-right: 20px
 
+  &__phone
+    margin-left: auto
+    display: none
+
   &__menu
     flex: 1 1 auto
     display: flex
@@ -72,26 +76,6 @@
     display: none
     padding-left: 20px
 
-
-+r(1200)
-  .header
-    &__menu li
-      margin: 0 5px
-
-+r($desktop)
-  .header
-    &__menu
-      display: none
-    &__contact
-      margin-left: auto
-    &__hamburger
-      display: block
-
-+r($mobile)
-  .header
-    &__hamburger
-      margin-left: auto
-
 // MOBILE NAVI
 .mobile-navi
   position: fixed
@@ -101,6 +85,7 @@
   bottom: 0
   background: #334e9a
   padding-top: 70px
+  padding-bottom: 70px
   opacity: 0
   display: flex
   flex-direction: column
@@ -134,3 +119,36 @@
       transition: color .25s $ease
       &:hover
         color: $colorYellow
+
+  &__phone
+    text-align: center
+    font-size: 13px
+    color: #fff
+    display: none
+    strong
+      font-weight: 900
+      font-size: 20px
+      line-height: 22px
+      letter-spacing: .6px
+
++r(1200)
+  .header
+    &__menu li
+      margin: 0 5px
+
++r($desktop)
+  .header
+    &__menu
+      display: none
+    &__contact
+      margin-left: auto
+    &__hamburger
+      display: block
+
++r($mobile)
+  .header
+    &__phone
+      display: block
+
+  .mobile-navi__phone
+    display: block

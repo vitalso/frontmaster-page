@@ -46,6 +46,12 @@
     max-width: 160px
 
 +r($desktop)
+  .bank
+    .wrapper
+      display: block
+      column-count: 3
+    &__item
+      max-width: 215px
 
 +r($tablet)
   .credit
@@ -58,16 +64,35 @@
       display: block
 
     .why__item
-      width: calc(100%/3.1)
+      width: calc(100%/3.1) !important
       max-width: none
       display: inline-block
       vertical-align: top
 
+  .bank__item
+    max-width: 210px
+    margin-bottom: 20px
+
++r($mobile)
+  .credit
+    .why__item
+      display: block
+      width: 49% !important
+    .swiper-container
+      overflow: visible
+
   .bank
     .wrapper
       display: block
-      column-count: 3
+      column-count: 2
     &__item
-      max-width: 215px
+      max-width: 130px
+      margin-left: auto
+      margin-right: auto
+      i
+        transform: scale3d(.8, .8, .8)
 
-+r($mobile)
++r($mobile-s)
+  .credit
+    .why__item
+      width: 100% !important

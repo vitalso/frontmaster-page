@@ -165,18 +165,63 @@ $(document).ready(function(){
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
       direction: 'horizontal',
-      // loop: true,
-      watchOverflow: true,
+      loop: false,
+      watchOverflow: false,
       // setWrapperSize: true,
       spaceBetween: 0,
-      slidesPerView: 2,
-      // normalizeSlideIndex: true,
+      slidesPerView: 5,
+      normalizeSlideIndex: true,
       // centeredSlides: true,
       freeMode: true,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is <= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        // when window width is <= 480px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    })
+
+    // Why carousel
+    var swiper = new Swiper ('.why__carousel', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "why__item",
+      direction: 'horizontal',
+      loop: false,
+      watchOverflow: false,
+      // setWrapperSize: true,
+      spaceBetween: 0,
+      slidesPerView: 5,
+      normalizeSlideIndex: true,
+      // centeredSlides: true,
+      freeMode: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is <= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        // when window width is <= 480px
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
     })
 
     // Steps of work carousel
@@ -196,6 +241,24 @@ $(document).ready(function(){
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is <= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        // when window width is <= 568px
+        568: {
+          slidesPerView: 2,
+          spaceBetween: 10
+        },
+        // when window width is <= 768px
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 0
+        }
+      }
     })
 
     // work example carousel
@@ -216,9 +279,9 @@ $(document).ready(function(){
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 568,
           settings: {
-            arrows: false,
+            arrows: true,
             slidesToShow: 1
           }
         }
@@ -248,6 +311,30 @@ $(document).ready(function(){
           }
         }
       ]
+    })
+
+    // Credit carousel
+    var swiper = new Swiper ('.credit__carousel', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "why__item",
+      direction: 'horizontal',
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is <= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        // when window width is <= 568px
+        568: {
+          slidesPerView: 2,
+          spaceBetween: 10
+        }
+      }
     })
 
   }

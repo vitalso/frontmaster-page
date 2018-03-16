@@ -47,6 +47,21 @@
 +r($tablet)
   .project
 
++r(680)
+  .project
+    padding-right: 15px
+    padding-left: 15px
+    .project__cta
+      border: none
+      &__title
+        font-size: 32px
+      &__subtitle
+        font-size: 20px
+      &__form
+        display: block
+        input[type='submit']
+          width: 300px
+
 +r($mobile)
   .project
     .project__cta
@@ -54,3 +69,15 @@
       &__title
         font-size: 28px
         line-height: 38px
+
++r($mobile-s)
+  .project
+    padding: 0
+    .project__cta
+      margin-top: 0
+      margin-bottom: 0
+    .project__cta__title
+      margin: 0
+      padding-top: 10px
+  .project .project__cta__form input[type='tel'] , .project .project__cta__form input[type='submit']
+    width: 260px

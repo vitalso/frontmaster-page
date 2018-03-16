@@ -134,6 +134,15 @@ $sprite: (
 		total-height: 388px,
 		image: '../img/sprite.png'
 	),
+	phone: (
+		offset-x: -654px,
+		offset-y: -147px,
+		width: 21px,
+		height: 21px,
+		total-width: 683px,
+		total-height: 388px,
+		image: '../img/sprite.png'
+	),
 	play-icon-active: (
 		offset-x: -501px,
 		offset-y: -204px,
@@ -252,6 +261,9 @@ $sprite: (
 	}
 	.icon-materials-5 {
 		@include sprite(materials-5)
+	}
+	.icon-phone {
+		@include sprite(phone)
 	}
 	.icon-play-icon-active {
 		@include sprite(play-icon-active)

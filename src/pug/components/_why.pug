@@ -2,29 +2,33 @@
 #about.why
   .container
     h1.text-center.wow Почему мы
-    .wrapper.justify-between.self-start
+    .why__carousel.swiper-container
+      .swiper-wrapper
 
-      .why__item.text-center.wow(data-animation-delay=".1s")
-        .why__item-icon
-          +icon('ico-why-1')
-        p Работа по договору, <br> Гарантия 2 года
+        .why__item.text-center.wow(data-animation-delay=".1s")
+          .why__item-icon
+            +icon('ico-why-1')
+          p Работа по договору, <br> Гарантия 2 года
 
-      .why__item.text-center.wow(data-animation-delay=".2s")
-        .why__item-icon
-          +icon('ico-why-2')
-        p Рассрочка <br> на 12 месяцев <br> без предоплаты
+        .why__item.text-center.wow(data-animation-delay=".2s")
+          .why__item-icon
+            +icon('ico-why-2')
+          p Рассрочка <br> на 12 месяцев <br> без предоплаты
 
-      .why__item.text-center.wow(data-animation-delay=".3s")
-        .why__item-icon
-          +icon('ico-why-3')
-        p Все работы по ГОСТам <br> и СНИПам (фотоотчет)
+        .why__item.text-center.wow(data-animation-delay=".3s")
+          .why__item-icon
+            +icon('ico-why-3')
+          p Все работы по ГОСТам <br> и СНИПам (фотоотчет)
 
-      .why__item.text-center.wow(data-animation-delay=".4s")
-        .why__item-icon
-          +icon('ico-why-4')
-        p Разработка <br> дизайн-проекта <br> в процессе замера
+        .why__item.text-center.wow(data-animation-delay=".4s")
+          .why__item-icon
+            +icon('ico-why-4')
+          p Разработка <br> дизайн-проекта <br> в процессе замера
 
-      .why__item.text-center.wow(data-animation-delay=".5s")
-        .why__item-icon
-          include ../../icons/why-5.svg
-        p Автономное проживание <br> на объекте, русские <br> строители
+        .why__item.text-center.wow(data-animation-delay=".5s")
+          .why__item-icon
+            include ../../icons/why-5.svg
+          p Автономное проживание <br> на объекте, русские <br> строители
+
+      .swiper-button-prev
+      .swiper-button-next
