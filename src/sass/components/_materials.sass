@@ -49,6 +49,9 @@
         opacity: 1
         height: auto
 
+  .swiper-button-next , .swiper-button-prev
+    display: none
+
 .swiper-button-prev
   left: -30px
   background-image: url('../img/icon-arrow-left.png')
@@ -56,6 +59,39 @@
 .swiper-button-next
   right: -30px
   background-image: url('../img/icon-arrow-right.png')
+
+// Accordion with materials on mobile
+.materials__accordion
+  display: none
+  .materials__item
+    border-top: 1px solid $borderInput
+    .materials__item__description , .materials__item-icon
+      opacity: 0
+      height: 0
+    .materials__item__info
+      padding-left: 30px
+      padding-right: 30px
+      padding-bottom: 20px
+    .materials__item-icon + p
+      min-height: 0
+      margin: 0
+      text-align: left
+  // is-show class for materials__item
+  .materials__item.is-show
+    .materials__item__description , .materials__item-icon
+      opacity: 1
+      height: auto
+    .materials__item-icon + p
+      margin: 40px 0 20px 0
+    .materials__item__description p
+      text-align: left
+    .materials__arrow
+      top: 180px
+      transform: rotate(-180deg)
+
+.materials__arrow
+  position: absolute
+  right: 30px
 
 +r($min-wide)
   .materials
@@ -75,7 +111,17 @@
 +r($desktop)
 
 +r($tablet)
+  .materials
+    .swiper-button-next , .swiper-button-prev
+      display: block
 
 +r($mobile)
   .materials__carousel
     display: none
+  .materials__accordion
+    display: block
+  
+  .swiper-button-prev
+    left: -20px
+  .swiper-button-next
+    right: -20px

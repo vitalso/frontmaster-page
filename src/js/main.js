@@ -165,18 +165,7 @@ $(document).ready(function(){
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
       direction: 'horizontal',
-      loop: false,
-      watchOverflow: false,
-      // setWrapperSize: true,
-      spaceBetween: 0,
       slidesPerView: 5,
-      normalizeSlideIndex: true,
-      // centeredSlides: true,
-      freeMode: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
       // Responsive breakpoints
       breakpoints: {
         // when window width is <= 320px
@@ -232,7 +221,7 @@ $(document).ready(function(){
       // loop: true,
       watchOverflow: true,
       // setWrapperSize: true,
-      slidesPerView: 3,
+      slidesPerView: 5,
       spaceBetween: 0,
       // normalizeSlideIndex: true,
       // centeredSlides: true,
@@ -243,20 +232,15 @@ $(document).ready(function(){
       },
       // Responsive breakpoints
       breakpoints: {
-        // when window width is <= 320px
-        320: {
+        // when window width is <= 568px
+        568: {
           slidesPerView: 1,
           spaceBetween: 10
         },
-        // when window width is <= 568px
-        568: {
-          slidesPerView: 2,
-          spaceBetween: 10
-        },
         // when window width is <= 768px
-        768: {
+        769: {
           slidesPerView: 3,
-          spaceBetween: 0
+          spaceBetween: 25
         }
       }
     })
@@ -324,19 +308,22 @@ $(document).ready(function(){
       },
       // Responsive breakpoints
       breakpoints: {
-        // when window width is <= 320px
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
         // when window width is <= 568px
         568: {
-          slidesPerView: 2,
+          slidesPerView: 1,
           spaceBetween: 10
         }
       }
     })
 
+  }
+
+  // Accordion for materials om mobile
+  $('.materials__accordion .materials__item').on('click' , toggleAccordion);
+
+  function toggleAccordion() {
+    $('.materials__accordion .materials__item').not($(this)).removeClass('is-show');
+    $(this).addClass('is-show');
   }
 
   //////////
@@ -380,7 +367,7 @@ $(document).ready(function(){
 
 
     // Popup callback
-    $('.contact-callback , .personal__data').magnificPopup({
+    $('.contact-callback , .personal__data , .detail').magnificPopup({
       type: 'inline',
       fixedContentPos: true,
       fixedBgPos: true,

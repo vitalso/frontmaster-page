@@ -1,4 +1,13 @@
 $sprite: (
+	arrow-down: (
+		offset-x: -664px,
+		offset-y: -204px,
+		width: 18px,
+		height: 10px,
+		total-width: 683px,
+		total-height: 388px,
+		image: '../img/sprite.png'
+	),
 	arrow-left: (
 		offset-x: -553px,
 		offset-y: -204px,
@@ -217,6 +226,9 @@ $sprite: (
 
 
 
+	.icon-arrow-down {
+		@include sprite(arrow-down)
+	}
 	.icon-arrow-left {
 		@include sprite(arrow-left)
 	}

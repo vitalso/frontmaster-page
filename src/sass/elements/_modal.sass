@@ -92,6 +92,17 @@ html.mfp-helper
 .mfp-iframe-scaler .mfp-close
   display: none
 
+// Detail popup
+.detail__cta
+  max-width: 950px
+  margin: 0 auto
+  color: #fff
+  .banner__form__el
+    .w-300
+      width: 300px
+    &.margin-top-50
+      margin-top: 50px
+
 button.mfp-close
   right: 55px
   top: 60px
@@ -101,6 +112,12 @@ button.mfp-close
   transition: .25s $ease
   &:hover
     transform: scale(1.2)
+
++r(950)
+  .detail__cta
+    max-width: 270px
+    .banner__form__row
+      flex-direction: column
 
 +r($tablet)
   .callback__cta
