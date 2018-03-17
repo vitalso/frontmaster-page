@@ -1,9 +1,12 @@
 /* Contact
 .contact
-  background: $graySecondaryColor
-
+  position: relative
+  z-index: 2
+  // background: $graySecondaryColor
+  margin-top: -130px
+  pointer-events: none
   .container
-    max-height: 180px
+    // max-height: 180px
 
   .ico
     margin-top: 8px
@@ -24,7 +27,7 @@
     display: flex
     justify-content: space-between
     align-items: self-start
-    transform: translate(0 , -130px)
+    pointer-events: all
     &__col
       &:first-child
         max-width: 350px
