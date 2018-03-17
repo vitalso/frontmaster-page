@@ -132,32 +132,6 @@ $(document).ready(function(){
     var slickNextArrow = '<button type="button" class="slick-next"><i class="icon icon-arrow-right"></i></button>';
     var slickPrevArrow = '<button type="button" class="slick-prev"><i class="icon icon-arrow-left"></i></button>'
 
-    // General purpose sliders
-    $('[js-slider]').each(function(i, slider){
-      var self = $(slider);
-
-      // set data attributes on slick instance to control
-      if (self && self !== undefined) {
-        self.slick({
-          autoplay: self.data('slick-autoplay') !== undefined ? true : false,
-          dots: self.data('slick-dots') !== undefined ? true : false,
-          arrows: self.data('slick-arrows') !== undefined ? true : false,
-          prevArrow: slickNextArrow,
-          nextArrow: slickPrevArrow,
-          infinite: self.data('slick-infinite') !== undefined ? true : true,
-          speed: 300,
-          slidesToShow: 1,
-          accessibility: false,
-          adaptiveHeight: true,
-          draggable: self.data('slick-no-controls') !== undefined ? false : true,
-          swipe: self.data('slick-no-controls') !== undefined ? false : true,
-          swipeToSlide: self.data('slick-no-controls') !== undefined ? false : true,
-          touchMove: self.data('slick-no-controls') !== undefined ? false : true
-        });
-      }
-
-    })
-
     // other individual sliders goes here
 
     // Materials carousel
@@ -165,18 +139,23 @@ $(document).ready(function(){
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
       direction: 'horizontal',
-      slidesPerView: 5,
+      slidesPerView: 'auto',
+      watchOverflow: true,
+      spaceBetween: 0,
+      freeMode: false,
       // Responsive breakpoints
       breakpoints: {
-        // when window width is <= 320px
+        // works as max-width prop
         320: {
           slidesPerView: 1,
           spaceBetween: 10
         },
-        // when window width is <= 480px
         768: {
           slidesPerView: 2,
           spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 3
         }
       }
     })
