@@ -27,6 +27,10 @@
   &__phone
     margin-left: auto
     display: none
+    font-size: 24px
+    color: #334e9a
+    &:hover
+      color: $colorOrange
 
   &__menu
     flex: 1 1 auto
@@ -156,3 +160,15 @@
 
   .mobile-navi__phone
     display: block
+
++r(414)
+  .header
+    &__hamburger
+      padding-left: 8px
+    &__logo
+      flex-basis: 160px
+      flex-shrink: 1
+      max-width: 160px
+      .icon
+        transform: scale(0.63)
+        transform-origin: left center

@@ -14,10 +14,7 @@
       "pre-push": "surge --project ./dist --domain frontmaster.surge.sh"
     }
   },
-  "authors": [
-    "Sergey Khmelevskoy <sergey@khmelevskoy.co>",
-    "Vitalii Sorotskiy"
-  ],
+  "author": "Sergey Khmelevskoy <sergey@khmelevskoy.co>",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^7.1.2",

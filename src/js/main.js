@@ -18,10 +18,6 @@ $(document).ready(function(){
     initSliders();
     initScrollMonitor();
     initMasks();
-
-    // development helper
-    _window.on('resize', debounce(setBreakpoint, 200))
-
   }
 
   // this is a master function which should have all functionality
@@ -135,38 +131,61 @@ $(document).ready(function(){
     // other individual sliders goes here
 
     // Materials carousel
-    var swiper = new Swiper ('.materials__carousel', {
+    var swiperMaterials = new Swiper ('.materials__carousel', {
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
       direction: 'horizontal',
-      slidesPerView: 'auto',
-      watchOverflow: true,
+      slidesPerView: 5,
       spaceBetween: 0,
+      watchOverflow: true,
       freeMode: false,
       // Responsive breakpoints
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
       breakpoints: {
         // works as max-width prop
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10
+        375: {
+          slidesPerView: 1
         },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20
+        850: {
+          slidesPerView: 2
         },
         992: {
           slidesPerView: 3
+        },
+        1100: {
+          slidesPerView: 4
         }
       }
     })
 
+    var iconBreakpoints = {
+      375: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      },
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      568: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      }
+    }
     // Why carousel
-    var swiper = new Swiper ('.why__carousel', {
+    var swiperWhy = new Swiper ('.why__carousel', {
       wrapperClass: "swiper-wrapper",
       slideClass: "why__item",
       direction: 'horizontal',
       loop: false,
-      watchOverflow: false,
+      watchOverflow: true,
       // setWrapperSize: true,
       spaceBetween: 0,
       slidesPerView: 5,
@@ -178,22 +197,11 @@ $(document).ready(function(){
         prevEl: '.swiper-button-prev',
       },
       // Responsive breakpoints
-      breakpoints: {
-        // when window width is <= 320px
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
-        // when window width is <= 480px
-        480: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        }
-      }
+      breakpoints: iconBreakpoints
     })
 
     // Steps of work carousel
-    var swiper = new Swiper ('.steps__carousel', {
+    var swiperSteps = new Swiper ('.steps__carousel', {
       wrapperClass: "swiper-wrapper",
       slideClass: "why__item",
       direction: 'horizontal',
@@ -210,19 +218,54 @@ $(document).ready(function(){
         prevEl: '.swiper-button-prev',
       },
       // Responsive breakpoints
+      breakpoints: iconBreakpoints
+    })
+
+    // Credit carousel
+    var creditSwiperOptions = {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "why__item",
+      direction: 'horizontal',
+      watchOverflow: true,
+      slidesPerView: 4,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Responsive breakpoints
       breakpoints: {
-        // when window width is <= 568px
-        568: {
+        375: {
           slidesPerView: 1,
           spaceBetween: 10
         },
-        // when window width is <= 768px
-        769: {
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        568: {
           slidesPerView: 3,
-          spaceBetween: 25
-        }
+          spaceBetween: 20
+        },
       }
-    })
+    }
+
+    var swiperCredit
+
+    function checkSwiperCredit(){
+      console.log(swiperCredit)
+      if ( _window.width() > 768 ) {
+        if ( swiperCredit !== undefined ) {
+          swiperCredit.destroy( true, true );
+        }
+        return
+      }
+      else if ( swiperCredit === undefined ) {
+        return swiperCredit = new Swiper ('.credit__carousel', creditSwiperOptions)
+      }
+    }
+
+    _window.on('resize', debounce(checkSwiperCredit, 300));
+    checkSwiperCredit();
 
     // work example carousel
     $('.works__example').slick({
@@ -276,24 +319,6 @@ $(document).ready(function(){
       ]
     })
 
-    // Credit carousel
-    var swiper = new Swiper ('.credit__carousel', {
-      wrapperClass: "swiper-wrapper",
-      slideClass: "why__item",
-      direction: 'horizontal',
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      // Responsive breakpoints
-      breakpoints: {
-        // when window width is <= 568px
-        568: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        }
-      }
-    })
 
   }
 
@@ -325,19 +350,10 @@ $(document).ready(function(){
       midClick: true,
       removalDelay: 300,
       mainClass: 'popup-fade',
-      callbacks: {
-        beforeOpen: function() {
-          // startWindowScroll = _window.scrollTop();
-          // $('html').addClass('mfp-helper');
-        }
-      },
       patterns: {
         youtube: {
           index: 'youtube.com/',
           id: 'v=', // String that splits URL in a two parts, second part should be %id%
-          // Or null - full URL will be returned
-          // Or a function that should return %id%, for example:
-          // id: function(url) { return 'parsed id'; }
           src: '//www.youtube.com/embed/%id%?autoplay=1&controls=0&showinfo=0' // URL that will be set as a source for iframe.
         }
       },
@@ -454,27 +470,5 @@ $(document).ready(function(){
   }
 
   initMap();
-
-  //////////
-  // DEVELOPMENT HELPER
-  //////////
-  function setBreakpoint(){
-    var wHost = window.location.host.toLowerCase()
-    var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
-    if (displayCondition){
-      console.log(displayCondition)
-      var wWidth = _window.width();
-
-      var content = "<div class='dev-bp-debug'>"+wWidth+"</div>";
-
-      $('.page').append(content);
-      setTimeout(function(){
-        $('.dev-bp-debug').fadeOut();
-      },1000);
-      setTimeout(function(){
-        $('.dev-bp-debug').remove();
-      },1500)
-    }
-  }
 
 });

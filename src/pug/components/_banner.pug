@@ -17,32 +17,32 @@
             i.icon.icon-banner-list-icon
             |Россрочка на 12 месяцев <br> без переплат
         .mobile-show
-          a(href="#").btn-primary ОТПРАВИТЬ ЗАЯВКУ
+          a(href="#callback").btn-primary.contact-callback ОТПРАВИТЬ ЗАЯВКУ
 
       .banner__cta.mobile-hidden.wow(data-animation-delay=".7s" data-animation-class="wowFadeRight")
         h3.banner__cta__title Только до 28 февраля
         p.banner__cta__subtitle Замер + смета = 2 500 руб. <br> <span>дизайн-проект</span> в подарок!
 
         form(action="").banner__form
-          .banner__form__el
+          .banner__form-el
             input(type="checkbox" , value="Нужен монтажник" , id="checkbox-1")
             span
             label(for="checkbox-1") Нужен монтажник
-          .banner__form__el
+          .banner__form-el
             input(type="checkbox" , value="Нужны материалы" , id="checkbox-2" , checked)
             span
             label(for="checkbox-2") Нужны материалы
-          .banner__form__el
+          .banner__form-el
             input(type="checkbox" , value="Нужно утепление" , id="checkbox-3")
             span
             label(for="checkbox-3") Нужно утпеление
-          .banner__form__el
+          .banner__form-el
             input(type="tel" , name="phone" , placeholder="Номер телефона")
-          .banner__form__el.form__el-size
+          .banner__form-el.form-el-size
             input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-4" , checked)
             span
             label(for="checkbox-4") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
-          .banner__form__el
+          .banner__form-el
             input(type="submit" , value="ОТПРАВИТЬ ЗАЯВКУ")
 
 // END BANNER

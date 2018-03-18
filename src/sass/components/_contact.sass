@@ -68,7 +68,7 @@
 
 /* Responsive for _contact component
 +r(1200)
-  .contact__info__col:first-child
+  .contact__info-col:first-child
     max-width: 250px
   .footer
     .header__contact
@@ -93,17 +93,19 @@
           float: right
 
 +r($tablet)
-
-+r(700)
   .contact
     .contact__info
       padding: 20px
     .container
       max-height: none
-    .contact__info__col, .contact__info__col:last-child
+    .contact__info-col
+      max-width: 400px
+      margin-left: auto
+      margin-right: auto
+    .contact__info-col, .contact__info-col:last-child
       display: block
       float: none
-    .contact__info__col h1
+    .contact__info-col h1
       text-align: left
       font-size: 28px
       line-height: 38px
@@ -112,6 +114,12 @@
       padding-left: 5px
 
 +r($mobile)
-  .contact .contact__el
+  .contact
+    .container
+      padding-left: 0
+      padding-right: 0
+    &__info
+      padding: 20px 30px
+  .contact__el
     font-size: 13px
     line-height: 25px

@@ -5,51 +5,80 @@
   &__carousel
     overflow: visible
   &__item
+    flex: 0 0 auto
     display: flex
     flex-direction: column
-    // width: 100%
-    // max-width: 240px
-    // min-width: 240px
-    flex: 0 0 240px
+    padding-left: 10px
+    padding-right: 10px
     position: relative
     cursor: pointer
 
-    &__info
+    &-info
       flex: 1 1 auto
       display: flex
       flex-direction: column
       padding-top: 20px
-      background: rgba(255, 255, 255, .96)
-      border: 6px solid transparent
+      // margin-left: -10px
+      // margin-right: -10px
+      background: white
+      &::before
+        display: inline-block
+        content: ' '
+        position: absolute
+        top: 0
+        bottom: 0
+        left: -7%
+        right: -7%
+        z-index: 1
+        background: white
+        opacity: 0
+        pointer-events: none
+        border: 6px solid transparent
+        transition: .25s $ease
 
     &-icon
-      z-index: 1
+      position: relative
+      z-index: 2
+      pointer-events: none
+      user-select: none
+      width: 100%
+      font-size: 0
+      margin-bottom: 7px
       & + p
-        min-height: 36px
+        flex: 1 1 auto
+        position: relative
+        z-index: 2
+        min-height: 48px
+        line-height: 1.5
         font-weight: 600
       img
         max-width: 100%
 
-    &__description
-      // align btn to slide bottom
+    &-description
+      position: relative
+      z-index: 2
       margin-top: auto
       font-size: 14px
       line-height: 24px
       opacity: 0
       height: 0
-      transition: opacity .25s $ease
+      transform: translate(0,20px)
+      transition: .25s $ease
 
     &:hover
       z-index: 2
-      .materials__item__info
-        width: 114%
-        top: 0
-        left: -7%
-        border-color: $grayColor
+      .materials__item-info
         position: absolute
+        top: 0
+        left: 10px
+        right: 10px
+        &::before
+          opacity: 1
+          border-color: $grayColor
 
-      .materials__item__description
+      .materials__item-description
         opacity: 1
+        transform: translate(0,0px)
         height: auto
 
   .swiper-button-next , .swiper-button-prev
@@ -68,10 +97,10 @@
   display: none
   .materials__item
     border-top: 1px solid $borderInput
-    .materials__item__description , .materials__item-icon
+    .materials__item-description , .materials__item-icon
       opacity: 0
       height: 0
-    .materials__item__info
+    .materials__item-info
       padding-left: 30px
       padding-right: 30px
       padding-bottom: 20px
@@ -81,12 +110,12 @@
       text-align: left
   // is-show class for materials__item
   .materials__item.is-show
-    .materials__item__description , .materials__item-icon
+    .materials__item-description , .materials__item-icon
       opacity: 1
       height: auto
     .materials__item-icon + p
       margin: 40px 0 20px 0
-    .materials__item__description p
+    .materials__item-description p
       text-align: left
     .materials__arrow
       top: 180px
@@ -96,22 +125,24 @@
   position: absolute
   right: 30px
 
-+r($min-wide)
++r($desktop)
   .materials
-    &__item__info
+    &__item-info
       border-width: 0
     &__item:hover
-      .materials__item__info
-        width: 100%
-        left: auto
-        border-color: transparent
+      .materials__item-info
         position: relative
+        left: 0
+        right: 0
+        // width: 100%
+        // left: auto
+        &::before
+          border-color: transparent
 
-    &__item__description
+    &__item-description
       opacity: 1
       height: auto
-
-+r($desktop)
+      transform: translate(0,0)
 
 +r($tablet)
   .materials
