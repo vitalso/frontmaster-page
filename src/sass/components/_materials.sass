@@ -114,6 +114,10 @@
 
 
 +r($mobile)
+  .materials
+    .swiper-wrapper
+      flex-direction: column
+
   .materials__arrow
     display: inline-block
 
@@ -123,25 +127,32 @@
       .materials__item-description
         opacity: 0
         height: 0
-    // , .materials__item-icon
-    .materials__item-description
+      .materials__arrow
+        right: 20px
+    .materials__item-description, .materials__item-icon
       opacity: 0
       height: 0
     .materials__item-info
       padding-left: 30px
       padding-right: 30px
       padding-bottom: 20px
+      &::before
+        display: none
     .materials__item-icon + p
       min-height: 0
       margin: 0
       text-align: left
+    .materials__item-description
+      .btn-primary
+        width: 100%
+        text-align: center
   // is-show class for materials__item
   .materials__item.is-show
     .materials__item-description , .materials__item-icon
       opacity: 1
       height: auto
     .materials__item-icon + p
-      margin: 40px 0 20px 0
+      margin: 20px 0 20px 0
     .materials__item-description p
       text-align: left
     .materials__arrow

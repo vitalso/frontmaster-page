@@ -2,7 +2,16 @@
 .reviews
   position: relative
   padding: 45px 0 100px 0
-  background: $grayLightColor
+  background: #f4f5f6
+  .container
+    position: relative
+    z-index: 2
+  &::after
+    position: absolute 0
+    display: inline-block
+    content: ' '
+    background: url('../img/reviewsBg.png') no-repeat center bottom
+    background-size: cover
 
   &__carousel-item
     flex: 0 0 auto
@@ -37,8 +46,8 @@
 
 +r($tablet)
   .reviews__carousel
-    padding-left: 50px
-    padding-right: 50px
+    // padding-left: 50px
+    // padding-right: 50px
   .reviews__carousel-item
     // max-width: 275px
     margin-left: 15px

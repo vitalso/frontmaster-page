@@ -234,7 +234,7 @@ $(document).ready(function(){
     // other individual sliders goes here
 
     // Materials carousel
-    var swiperMaterials = new Swiper ('.materials__carousel', {
+    var materialsSwiperOptions = {
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
       direction: 'horizontal',
@@ -262,16 +262,34 @@ $(document).ready(function(){
           slidesPerView: 4
         }
       }
-    })
+    }
+
+    var swiperMaterials
+
+    function checkSwiperMaterials(){
+      if ( _window.width() < 568 ) {
+        if ( swiperMaterials !== undefined ) {
+          swiperMaterials.destroy( true, true );
+        }
+        return
+      }
+      if ( swiperMaterials === undefined ) {
+        return swiperMaterials = new Swiper ('.materials__carousel', materialsSwiperOptions)
+      }
+    }
+
+    _window.on('resize', debounce(checkSwiperMaterials, 300));
+    checkSwiperMaterials();
+
 
     var iconBreakpoints = {
       375: {
         slidesPerView: 1,
-        spaceBetween: 10
+        spaceBetween: 0
       },
       480: {
         slidesPerView: 2,
-        spaceBetween: 20
+        spaceBetween: 0
       },
       568: {
         slidesPerView: 3,
@@ -392,9 +410,10 @@ $(document).ready(function(){
         },
         768: {
           slidesPerView: 2,
-          spaceBetween: 20
+          spaceBetween: 20,
+          noSwipingClass: ""
         },
-        992: {
+        1150: {
           slidesPerView: 3,
           spaceBetween: 20
         }

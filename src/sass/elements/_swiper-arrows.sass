@@ -9,42 +9,67 @@
   background-image: url('../img/icon-arrow-right.png')
   transform-origin: right center
 
-.materials
-  .swiper-button-prev, .swiper-button-next
-    top: 55%
-
-.steps
-  .swiper-button-prev, .swiper-button-next
-    top: 28%
 
 .why
   .swiper-button-prev, .swiper-button-next
-    top: 22%
+    top: calc(25% + 85px)
+    +r($mobile)
+      top: calc(25% + 65px)
+
+.materials
+  .swiper-button-prev, .swiper-button-next
+    top: 55%
+    +r($desktop)
+      top: 35%
+    +r($mobile)
+      display: none
+
+.steps
+  .swiper-button-prev, .swiper-button-next
+    top: calc(30% + 105px)
+    +r($mobile)
+      top: calc(30% + 85px)
+
+.works
+  .swiper-button-prev, .swiper-button-next
+    top: calc(40% + 85px)
+    +r($mobile)
+      top: calc(40% + 65px)
+
+.reviews
+  .swiper-button-prev, .swiper-button-next
+    top: calc(37.5% + 95px)
+    +r($mobile)
+      top: calc(37.5% + 75px)
+
+.works, .reviews
+  .swiper-button-prev
+    left: -25px
+  .swiper-button-next
+    right: -25px
+
 
 .credit
   .swiper-button-prev, .swiper-button-next
     top: 22%
 
-.works
-  .swiper-button-prev, .swiper-button-next
-    top: 50%
+
++r(1440)
+  .works, .reviews
+    .swiper-button-prev
+      left: 15px
+    .swiper-button-next
+      right: 15px
+
 
 +r($desktop)
   .swiper-button-prev, .swiper-button-next
     transform: scale(0.55)
 
-  .materials
-    .swiper-button-prev, .swiper-button-next
-      top: 35%
-
 +r($tablet)
   .credit
 
 +r($mobile)
-  .materials
-    .swiper-button-prev, .swiper-button-next
-      display: none
-
   .swiper-button-prev
     left: 10px
   .swiper-button-next

@@ -6,6 +6,10 @@
   padding-top: 2em
   h1
     margin-top: 0
+  .container
+    position: relative
+    z-index: 2
+
   &__example
     position: relative
     padding-top: 10px
@@ -13,6 +17,9 @@
     &-slide
       flex: 0 0 auto
 
+  .slide__compare
+    font-size: 0
+    overflow: hidden
 
 +r($tablet)
   .works__example-slide
@@ -32,13 +39,3 @@
     img
       &:nth-child(2)
         display: none
-
-+r($mobile)
-  .works__example
-    padding-left: 0
-    padding-right: 0
-    &-slide
-      // max-width: 100%
-    .twentytwenty-container img
-      margin-right: auto
-      margin-left: auto

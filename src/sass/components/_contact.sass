@@ -28,19 +28,29 @@
     justify-content: space-between
     align-items: self-start
     pointer-events: all
-    &__col
+    margin: 0 0px
+    &-col
+      padding-left: 5px
+      padding-right: 5px
       &:first-child
+        padding-left: 0
+        flex: 0 0 350px
         max-width: 350px
-
+      &:last-child
+        padding-right: 0
     h1
       margin-top: 0
       line-height: 46px
 
   .contact__el
+    display: flex
     font-size: 15px
     line-height: 27px
     margin-bottom: 20px
-
+    .ico
+      flex: 0 0 auto
+      &-location
+        margin-right: 5px
     p
       margin: 0
       display: inline-block
@@ -79,7 +89,7 @@
     .contact__info
       padding: 30px
       display: block
-      &__col
+      &-col
         display: inline-block
         vertical-align: top
         &:first-child
