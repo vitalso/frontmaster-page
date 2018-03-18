@@ -120,6 +120,109 @@ $(document).ready(function(){
     $('.mobile-navi').removeClass('is-active');
   }
 
+
+  //////////
+  // CALCULATE LOGIC
+  //////////
+  function numberWithSpace(x){
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+  // $.fn.digits = function(){
+  //   return this.each(function(){
+  //     $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") );
+  //   })
+  // }
+
+  var curCalcPrice, curCreditPrice
+
+  $('[js-calculateForm]').on('change', function(e){
+    var $form = $(this);
+    var calcPrice = $form.find('.form__result-title i')
+    var calcCreditPrice = $form.find('.form__result-subtitle i')
+
+    var calcType = $form.find('select[name="house"]').val()
+    var calcSquare = $form.find('input[name="square"]').val()
+    var calcMaterial = $form.find('select[name="material"]').val()
+    var calcWarming = $form.find('input[name="warming"]').is(':checked')
+
+    var basePrice = 1000 // rub, per square meter
+    var yearlyInterest = 14 // percent
+    var resultPrice = basePrice
+
+    // first up for saved numbers
+    curCalcPrice = parseInt(calcPrice.html().replace(/ /g, ''))
+    curCreditPrice = parseInt(calcCreditPrice.html().replace(/ /g, ''))
+
+    // console.log(
+    //   'calcType', calcType,
+    //   'calcSquare', calcSquare,
+    //   'calcMaterial', calcMaterial,
+    //   'calcWarming', calcWarming
+    // )
+
+    if ( calcType == "Загородный дом" ){
+      resultPrice = resultPrice + 500
+    } else if ( calcType == "Котедж" ){
+      resultPrice = resultPrice + 1000
+    } else if ( calcType == "Вилла" ){
+      resultPrice = resultPrice + 2500
+    } else if ( calcType == "Особняк" ){
+      resultPrice = resultPrice + 5000
+    }
+
+    if ( calcMaterial == "Дерево" ){
+      resultPrice = resultPrice + 400
+    } else if ( calcMaterial == "Кирпич" ){
+      resultPrice = resultPrice + 250
+    } else if ( calcMaterial == "Штукатурка" ){
+      resultPrice = resultPrice + 150
+    }
+
+
+    if ( calcSquare > 0 ){
+      resultPrice = resultPrice * Math.abs(calcSquare)
+    }
+
+    // bouns price for volume ?
+    if ( calcSquare > 100) {
+      resultPrice = resultPrice * 0.85
+    }
+    if ( calcSquare > 200) {
+      resultPrice = resultPrice * 0.8
+    }
+
+    if (calcWarming){
+      resultPrice = resultPrice + 5000
+    }
+
+    // update html
+    var creditPrice = Math.floor((resultPrice * (1 + (yearlyInterest/100))) / 12)
+
+    console.log(curCalcPrice, resultPrice)
+    calcPrice.prop('Counter',curCalcPrice).animate({
+      Counter: resultPrice
+    }, {
+      duration: 600,
+      easing: 'swing',
+      step: function (now) {
+        $(this).html(numberWithSpace(Math.floor(now)));
+      }
+    });
+
+    calcCreditPrice.prop('Counter',curCreditPrice).animate({
+      Counter: creditPrice
+    }, {
+      duration: 600,
+      easing: 'swing',
+      step: function (now) {
+        $(this).html(numberWithSpace(Math.floor(now)));
+      }
+    });
+
+
+  })
+
+
   //////////
   // SLIDERS
   //////////
@@ -267,58 +370,65 @@ $(document).ready(function(){
     _window.on('resize', debounce(checkSwiperCredit, 300));
     checkSwiperCredit();
 
+
     // work example carousel
-    $('.works__example').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      draggable: false,
-      prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: true,
-            draggable: true,
-            slidesToShow: 2
-          }
+    var swiperWork = new Swiper ('.works__example', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "works__example-slide",
+      direction: 'horizontal',
+      watchOverflow: true,
+      slidesPerView: 4,
+      spaceBetween: 30,
+      noSwipingClass: "slide__compare",
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20
         },
-        {
-          breakpoint: 568,
-          settings: {
-            arrows: true,
-            slidesToShow: 1
-          }
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20
         }
-      ]
-    })
+      }
+    });
 
     // Review carousel
-    $('.reviews__carousel').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      arrows: true,
-      prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: true,
-            slidesToShow: 2
-          }
+    var swiperTestimonials = new Swiper ('.reviews__carousel', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "reviews__carousel-item",
+      direction: 'horizontal',
+      watchOverflow: true,
+      slidesPerView: 3,
+      spaceBetween: 25,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20
         },
-        {
-          breakpoint: 568,
-          settings: {
-            arrows: true,
-            slidesToShow: 1
-          }
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 20
         }
-      ]
-    })
-
+      }
+    });
 
   }
 
@@ -438,6 +548,8 @@ $(document).ready(function(){
       }, 150, {
         'leading': true
       }));
+      // uncomment if you want fadeOut effect on scrollOut
+
       // elWatcher.exitViewport(throttle(function() {
       //   $(el).removeClass(animationClass);
       //   $(el).css({

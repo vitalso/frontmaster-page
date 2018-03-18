@@ -81,16 +81,6 @@
         transform: translate(0,0px)
         height: auto
 
-  .swiper-button-next , .swiper-button-prev
-    // display: none
-
-.swiper-button-prev
-  left: -30px
-  background-image: url('../img/icon-arrow-left.png')
-
-.swiper-button-next
-  right: -30px
-  background-image: url('../img/icon-arrow-right.png')
 
 // Accordion with materials on mobile
 .materials__accordion
@@ -146,16 +136,10 @@
 
 +r($tablet)
   .materials
-    .swiper-button-next , .swiper-button-prev
-      display: block
+
 
 +r($mobile)
   .materials__carousel
     display: none
   .materials__accordion
     display: block
-
-  .swiper-button-prev
-    left: -20px
-  .swiper-button-next
-    right: -20px

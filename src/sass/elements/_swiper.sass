@@ -1,0 +1,51 @@
+
+.swiper-button-prev
+  left: -30px
+  background-image: url('../img/icon-arrow-left.png')
+  transform-origin: left center
+
+.swiper-button-next
+  right: -30px
+  background-image: url('../img/icon-arrow-right.png')
+  transform-origin: right center
+
+
+.steps
+  .swiper-button-prev, .swiper-button-next
+    transform: scale(0.55)
+    top: 28%
+
+.why
+  .swiper-container
+    overflow: visible
+  .swiper-button-prev, .swiper-button-next
+    transform: scale(0.55)
+    top: 22%
+
+.credit
+  .swiper-button-prev, .swiper-button-next
+    transform: scale(0.55)
+    top: 22%
+
+.works
+  .swiper-container
+    // overflow: hidden
+
+  .swiper-button-prev, .swiper-button-next
+    // transform: scale(0.55)
+    top: 50%
+
++r($desktop)
+  .swiper-button-prev, .swiper-button-next
+    transform: scale(0.55)
+
++r($tablet)
+  .credit
+    .swiper-container
+      overflow: visible
+
++r($mobile)
+  .swiper-button-prev
+    left: -20px
+  .swiper-button-next
+    right: -20px

@@ -4,28 +4,13 @@
   padding-bottom: 50px
   background: white
 
-  .swiper-button-prev, .swiper-button-next
-    transform: scale(0.55)
-    top: 28%
-  .swiper-button-prev
-    transform-origin: left center
-  .swiper-button-next
-    transform-origin: right center
-
-
-  .wrapper
-    //counter-reset: step-nubmer
-
   &__carousel
     overflow: visible
-
     .why__item
-      //counter-increment: step-number
       position: relative
       margin-top: 60px
 
   &__number
-    //content: '0' counter(step-number)
     width: 100%
     position: absolute
     top: -20px
@@ -34,17 +19,3 @@
     font-size: 74px
     letter-spacing: 10px
     font-weight: 900
-
-  .swiper-button-prev , .swiper-button-next
-    display: none
-
-+r($tablet)
-  .steps__carousel
-    .swiper-button-prev , .swiper-button-next
-      display: block
-
-  .steps .why__item
-    max-width: 100%
-
-  // .swiper-wrapper
-  //   display: -webkit-box
