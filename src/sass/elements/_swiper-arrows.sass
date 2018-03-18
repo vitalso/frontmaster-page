@@ -1,51 +1,51 @@
 
 .swiper-button-prev
-  left: -30px
+  left: 15px
   background-image: url('../img/icon-arrow-left.png')
   transform-origin: left center
 
 .swiper-button-next
-  right: -30px
+  right: 15px
   background-image: url('../img/icon-arrow-right.png')
   transform-origin: right center
 
+.materials
+  .swiper-button-prev, .swiper-button-next
+    top: 55%
 
 .steps
   .swiper-button-prev, .swiper-button-next
-    transform: scale(0.55)
     top: 28%
 
 .why
-  .swiper-container
-    overflow: visible
   .swiper-button-prev, .swiper-button-next
-    transform: scale(0.55)
     top: 22%
 
 .credit
   .swiper-button-prev, .swiper-button-next
-    transform: scale(0.55)
     top: 22%
 
 .works
-  .swiper-container
-    // overflow: hidden
-
   .swiper-button-prev, .swiper-button-next
-    // transform: scale(0.55)
     top: 50%
 
 +r($desktop)
   .swiper-button-prev, .swiper-button-next
     transform: scale(0.55)
 
+  .materials
+    .swiper-button-prev, .swiper-button-next
+      top: 35%
+
 +r($tablet)
   .credit
-    .swiper-container
-      overflow: visible
 
 +r($mobile)
+  .materials
+    .swiper-button-prev, .swiper-button-next
+      display: none
+
   .swiper-button-prev
-    left: -20px
+    left: 10px
   .swiper-button-next
-    right: -20px
+    right: 10px

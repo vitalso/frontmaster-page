@@ -1,5 +1,6 @@
 /* Materials variant
 .materials
+  position: relative
   padding: 50px 0 75px 0
   background: white
   &__carousel
@@ -21,6 +22,10 @@
       // margin-left: -10px
       // margin-right: -10px
       background: white
+      top: 0
+      left: 10px
+      right: 10px
+      pointer-events: none
       &::before
         display: inline-block
         content: ' '
@@ -69,9 +74,7 @@
       z-index: 2
       .materials__item-info
         position: absolute
-        top: 0
-        left: 10px
-        right: 10px
+        pointer-events: all
         &::before
           opacity: 1
           border-color: $grayColor
@@ -82,36 +85,8 @@
         height: auto
 
 
-// Accordion with materials on mobile
-.materials__accordion
-  display: none
-  .materials__item
-    border-top: 1px solid $borderInput
-    .materials__item-description , .materials__item-icon
-      opacity: 0
-      height: 0
-    .materials__item-info
-      padding-left: 30px
-      padding-right: 30px
-      padding-bottom: 20px
-    .materials__item-icon + p
-      min-height: 0
-      margin: 0
-      text-align: left
-  // is-show class for materials__item
-  .materials__item.is-show
-    .materials__item-description , .materials__item-icon
-      opacity: 1
-      height: auto
-    .materials__item-icon + p
-      margin: 40px 0 20px 0
-    .materials__item-description p
-      text-align: left
-    .materials__arrow
-      top: 180px
-      transform: rotate(-180deg)
-
 .materials__arrow
+  display: none
   position: absolute
   right: 30px
 
@@ -139,7 +114,36 @@
 
 
 +r($mobile)
-  .materials__carousel
-    display: none
-  .materials__accordion
-    display: block
+  .materials__arrow
+    display: inline-block
+
+  .materials__item
+    border-top: 1px solid $borderInput
+    &:hover
+      .materials__item-description
+        opacity: 0
+        height: 0
+    // , .materials__item-icon
+    .materials__item-description
+      opacity: 0
+      height: 0
+    .materials__item-info
+      padding-left: 30px
+      padding-right: 30px
+      padding-bottom: 20px
+    .materials__item-icon + p
+      min-height: 0
+      margin: 0
+      text-align: left
+  // is-show class for materials__item
+  .materials__item.is-show
+    .materials__item-description , .materials__item-icon
+      opacity: 1
+      height: auto
+    .materials__item-icon + p
+      margin: 40px 0 20px 0
+    .materials__item-description p
+      text-align: left
+    .materials__arrow
+      top: 180px
+      transform: rotate(-180deg)

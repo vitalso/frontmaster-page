@@ -244,15 +244,15 @@ $(document).ready(function(){
       freeMode: false,
       // Responsive breakpoints
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.material-next',
+        prevEl: '.material-prev',
       },
       breakpoints: {
         // works as max-width prop
-        375: {
+        568: {
           slidesPerView: 1
         },
-        850: {
+        768: {
           slidesPerView: 2
         },
         992: {
@@ -296,8 +296,8 @@ $(document).ready(function(){
       // centeredSlides: true,
       freeMode: false,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.why-next',
+        prevEl: '.why-prev',
       },
       // Responsive breakpoints
       breakpoints: iconBreakpoints
@@ -317,8 +317,8 @@ $(document).ready(function(){
       // centeredSlides: true,
       freeMode: false,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.steps-next',
+        prevEl: '.steps-prev',
       },
       // Responsive breakpoints
       breakpoints: iconBreakpoints
@@ -332,8 +332,8 @@ $(document).ready(function(){
       watchOverflow: true,
       slidesPerView: 4,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.credit-next',
+        prevEl: '.credit-prev',
       },
       // Responsive breakpoints
       breakpoints: {
@@ -381,8 +381,8 @@ $(document).ready(function(){
       spaceBetween: 30,
       noSwipingClass: "slide__compare",
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.works-next',
+        prevEl: '.works-prev',
       },
       // Responsive breakpoints
       breakpoints: {
@@ -410,8 +410,8 @@ $(document).ready(function(){
       slidesPerView: 3,
       spaceBetween: 25,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
       },
       // Responsive breakpoints
       breakpoints: {
@@ -433,12 +433,18 @@ $(document).ready(function(){
   }
 
   // Accordion for materials om mobile
-  $('.materials__accordion .materials__item').on('click' , toggleAccordion);
+  $('.materials__item').on('click' , function(){
+    if ( _window.width() < 568 ){
+      $('.materials__item').not($(this)).removeClass('is-show');
+      $(this).addClass('is-show');
+    }
+  });
 
-  function toggleAccordion() {
-    $('.materials__accordion .materials__item').not($(this)).removeClass('is-show');
-    $(this).addClass('is-show');
-  }
+  _window.on('resize', debounce(function(){
+    if ( _window.width() > 568 ){
+      $('.materials__item').removeClass('is-show');
+    }
+  }, 300));
 
   //////////
   // MODALS
