@@ -267,14 +267,11 @@ $(document).ready(function(){
     var swiperMaterials
 
     function checkSwiperMaterials(){
-      if ( _window.width() < 568 ) {
-        if ( swiperMaterials !== undefined ) {
-          swiperMaterials.destroy( true, true );
-        }
-        return
-      }
-      if ( swiperMaterials === undefined ) {
-        return swiperMaterials = new Swiper ('.materials__carousel', materialsSwiperOptions)
+      if ( _window.width() < 568 && swiperMaterials !== undefined) {
+        swiperMaterials.destroy();
+        swiperMaterials = undefined
+      } else if ( _window.width() > 568 && swiperMaterials === undefined ) {
+        swiperMaterials = new Swiper ('.materials__carousel', creditSwiperOptions)
       }
     }
 
@@ -348,7 +345,7 @@ $(document).ready(function(){
       slideClass: "why__item",
       direction: 'horizontal',
       watchOverflow: true,
-      slidesPerView: 4,
+      slidesPerView: 'auto',
       navigation: {
         nextEl: '.credit-next',
         prevEl: '.credit-prev',
@@ -363,25 +360,21 @@ $(document).ready(function(){
           slidesPerView: 2,
           spaceBetween: 20
         },
-        568: {
+        786: {
           slidesPerView: 3,
           spaceBetween: 20
-        },
+        }
       }
     }
 
-    var swiperCredit
+    var swiperCredit = undefined
 
     function checkSwiperCredit(){
-      console.log(swiperCredit)
-      if ( _window.width() > 768 ) {
-        if ( swiperCredit !== undefined ) {
-          swiperCredit.destroy( true, true );
-        }
-        return
-      }
-      else if ( swiperCredit === undefined ) {
-        return swiperCredit = new Swiper ('.credit__carousel', creditSwiperOptions)
+      if ( _window.width() > 768 && swiperCredit !== undefined) {
+        swiperCredit.destroy();
+        swiperCredit = undefined
+      } else if ( _window.width() < 768 && swiperCredit === undefined ) {
+        swiperCredit = new Swiper ('.credit__carousel', creditSwiperOptions)
       }
     }
 

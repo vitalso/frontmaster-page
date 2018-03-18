@@ -51,8 +51,16 @@
 
 .credit
   .swiper-button-prev, .swiper-button-next
-    top: 22%
-
+    display: none
+    top: calc(22% + 180px)
+    +r($tablet)
+      display: block
+    +r(640)
+      top: calc(22% + 230px)
+    +r($mobile)
+      top: calc(22% + 185px)
+    +r(504)
+      top: calc(22% + 205px)
 
 +r(1440)
   .works, .reviews
