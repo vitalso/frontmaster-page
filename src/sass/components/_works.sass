@@ -20,11 +20,20 @@
   .slide__compare
     font-size: 0
     overflow: hidden
+    img
+      width: 100%
+
++r($desktop)
+  .works
+    padding-top: 15px
+    .container
+      padding-left: 100px
+      padding-right: 100px
 
 +r($tablet)
   .works__example-slide
     // max-width: 270px
-    // margin-left: 15px
+    // margin-left: 15px\
     // margin-right: 15px
   .works
     .twentytwenty-container img
@@ -39,3 +48,10 @@
     img
       &:nth-child(2)
         display: none
+
++r($mobile)
+  .works
+    padding-bottom: 35px
+    .container
+      padding-left: 30px
+      padding-right: 30px

@@ -24,8 +24,11 @@
     .why__item
       flex: 0 1 33.3%
       max-width: 100%
+    &__subtitle
+      margin-top: -10px
+      margin-bottom: 40px
 
-+r($tablet)
++r(767)
   .credit
     padding-top: 25px
     .swiper-wrapper
@@ -47,65 +50,5 @@
 
 +r($mobile)
   .credit
+    padding-bottom: 20px
     .why__item
-
-
-/* Bank
-.bank
-  padding-top: 20px
-  padding-bottom: 65px
-  background: $grayColor
-  .wrapper
-    margin-left: -12px
-    margin-right: -12px
-
-  &__title
-    margin: 0 0 35px 0
-    font-size: 26px
-    line-height: 38px
-    font-weight: 600
-
-  &__item
-    position: relative
-    width: 100%
-    flex: 0 1 16.666%
-    padding-right: 12px
-    padding-left: 12px
-    // max-width: 170px
-    min-height: 96px
-    margin-bottom: 40px
-    display: flex
-    align-items: center
-    justify-content: center
-    &::after
-      display: inline-block
-      content: ' '
-      position: absolute
-      top: 0
-      bottom: 0
-      left: 12px
-      right: 12px
-      background: #fff
-      z-index: 1
-    .icon
-      position: relative
-      z-index: 2
-
-+r($desktop)
-  .bank
-    .wrapper
-      flex-wrap: wrap
-    &__item
-      flex: 0 1 33.3%
-
-+r($tablet)
-  .bank__item
-    // max-width: 210px
-    margin-bottom: 20px
-
-+r($mobile)
-  .bank
-    &__item
-      flex: 0 1 50%
-      i
-        transform: scale3d(.8, .8, .8)

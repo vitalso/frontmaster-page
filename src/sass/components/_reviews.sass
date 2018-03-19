@@ -44,16 +44,28 @@
       .icon-play-icon-active
         transform: translate(-50%,-50%) scale(1)
 
++r($desktop)
+  .reviews
+    .container
+      padding-left: 100px
+      padding-right: 100px
+
 +r($tablet)
   .reviews__carousel
     // padding-left: 50px
     // padding-right: 50px
   .reviews__carousel-item
     // max-width: 275px
-    margin-left: 15px
-    margin-right: 15px
+    // margin-left: 15px
+    // margin-right: 15px
 
 +r($mobile)
+  .reviews
+    padding-top: 15px
+    padding-bottom: 55px
+    .container
+      padding-left: 30px
+      padding-right: 30px
   .reviews__carousel
     padding: 0
   .reviews__carousel-item

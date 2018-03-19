@@ -170,6 +170,8 @@
 
 .banner__form-result
   padding: 7px 0 20px 0
+  br
+    display: none
   p
     margin: 10px 0
   .form__result-title
@@ -194,7 +196,7 @@
 +r($desktop)
   .banner
     padding-top: 20px
-    min-height: 540px
+    min-height: 560px
     &__title
       font-size: 40px
     &__cta
@@ -205,6 +207,7 @@
 
 +r($tablet)
   .banner
+    min-height: 540px
     &__title
       font-size: 36px
       line-height: 46px
@@ -245,6 +248,7 @@
 
     &__describe
       max-width: 100%
+      padding-right: 0
     &__title
       font-size: 32px
       line-height: 44px
@@ -257,3 +261,13 @@
 
   .mobile-hidden
     display: none
+
++r(414)
+  .banner__form-result
+    padding-bottom: 0px
+    br
+      display: block
+  .banner__form-result .form__result-subtitle
+    margin-top: 15px
+    margin-left: -10px
+    margin-right: -10px

@@ -54,7 +54,10 @@ html.mfp-helper
   margin: auto
   justify-content: center
 
-
+.mfp-iframe-scaler
+  flex: 0 0 auto
+  height: auto
+  position: relative
 // Callback popup
 .callback__cta
   max-width: 620px
@@ -90,7 +93,7 @@ html.mfp-helper
     font-weight: 600
 
 .mfp-iframe-scaler .mfp-close
-  display: none
+  // display: none
 
 // Detail popup
 .detail__cta
@@ -112,7 +115,13 @@ button.mfp-close
   transition: .25s $ease
   &:hover
     transform: scale(1.2)
-
+  &:active
+    top: 55px
+  +r($mobile)
+    right: 25px
+    top: 30px
+    &:active
+      top: 55px
 +r(950)
   .detail__cta
     max-width: 270px

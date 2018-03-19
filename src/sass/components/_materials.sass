@@ -92,6 +92,7 @@
 
 +r($desktop)
   .materials
+    padding-bottom: 50px
     &__item-info
       border-width: 0
     &__item:hover
@@ -113,8 +114,10 @@
   .materials
 
 
+
 +r($mobile)
   .materials
+    padding-top: 20px
     .swiper-wrapper
       flex-direction: column
 
@@ -158,3 +161,9 @@
     .materials__arrow
       top: 180px
       transform: rotate(-180deg)
+
++r(414)
+  .materials
+    .materials__item
+      margin-left: -30px
+      margin-right: -30px

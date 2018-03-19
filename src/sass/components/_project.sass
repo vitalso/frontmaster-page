@@ -44,6 +44,9 @@
 
 /* Responsive for _project component
 +r($desktop)
+  .project
+    padding: 15px 0
+    min-height: 420px
 
 +r($tablet)
   .project
@@ -73,12 +76,21 @@
 
 +r($mobile-s)
   .project
-    padding: 0
+    padding: 30px 0
+    p
+      margin-left: -10px
+      margin-right: -10px
+      br
+        display: none
     .project__cta
       margin-top: 0
       margin-bottom: 0
       &-title
         margin: 0
         padding-top: 10px
+        padding-left: 10px
+        padding-right: 10px
+      &-subtitle
+        margin-top: 15px
   .project .project__cta-form input[type='tel'] , .project .project__cta-form input[type='submit']
     width: 260px

@@ -23,6 +23,9 @@ $(document).ready(function(){
   // this is a master function which should have all functionality
   pageReady();
 
+  // swiper fix for destroy
+  _window.on('resize', debounce(initScrollMonitor, 300))
+
   //////////
   // COMMON
   //////////
@@ -53,12 +56,21 @@ $(document).ready(function(){
     .on('click', '.header__menu a', function() {
       closeMobileMenu();
       var el = $(this).attr('href');
-      $(this).parent().siblings().find('a').removeClass('active-link');
-      $(this).addClass('active-link');
+      // $(this).parent().siblings().find('a').removeClass('active-link');
+      // $(this).addClass('active-link');
       $('body, html').animate({
           scrollTop: $(el).offset().top}, 1000);
       return false;
-    });
+    })
+    .on('click', '.mobile-navi__menu a', function(){
+      closeMobileMenu();
+      var el = $(this).attr('href');
+      // $(this).parent().siblings().find('a').removeClass('active-link');
+      // $(this).addClass('active-link');
+      $('body, html').animate({
+          scrollTop: $(el).offset().top - $('.header').height()}, 1000);
+      return false;
+    })
 
 
   // HEADER SCROLL
@@ -264,14 +276,14 @@ $(document).ready(function(){
       }
     }
 
-    var swiperMaterials
+    var swiperMaterials = undefined
 
     function checkSwiperMaterials(){
       if ( _window.width() < 568 && swiperMaterials !== undefined) {
         swiperMaterials.destroy();
         swiperMaterials = undefined
       } else if ( _window.width() > 568 && swiperMaterials === undefined ) {
-        swiperMaterials = new Swiper ('.materials__carousel', creditSwiperOptions)
+        swiperMaterials = new Swiper ('.materials__carousel', materialsSwiperOptions)
       }
     }
 
@@ -403,8 +415,7 @@ $(document).ready(function(){
         },
         768: {
           slidesPerView: 2,
-          spaceBetween: 20,
-          noSwipingClass: ""
+          spaceBetween: 20
         },
         1150: {
           slidesPerView: 3,
@@ -473,7 +484,7 @@ $(document).ready(function(){
       fixedContentPos: true,
       fixedBgPos: true,
       overflowY: 'auto',
-      closeBtnInside: true,
+      closeBtnInside: false,
       preloader: false,
       midClick: true,
       removalDelay: 300,
