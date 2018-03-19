@@ -37,8 +37,14 @@
     p
       margin: 0
 
-+r(767)
+    .header__logo
+      flex-basis: auto
+      max-width: 205px
+      .icon
+        transform-origin: left center
+        transform: scale(0.65)
 
++r(767)
   .footer
     padding: 30px 20px
     text-align: center
@@ -47,6 +53,10 @@
       align-items: center
     .header__logo
       padding-right: 0
+      max-width: 100%
+      .icon
+        transform-origin: center center
+        transform: scale(0.9)
     .header__contact
       margin-left: 0
     p

@@ -86,7 +86,8 @@
   top: 0
   left: 0
   right: 0
-  bottom: 0
+  // bottom: 0
+  min-height: 100vh
   background: #334e9a
   padding-top: 70px
   padding-bottom: 70px
@@ -150,6 +151,11 @@
       margin-left: auto
     &__hamburger
       display: block
+
++r($desktop)
+  .mobile-navi
+    &__menu
+      padding: 5px 0
 
 +r(640)
   .header

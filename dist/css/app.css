@@ -4012,6 +4012,10 @@ button:focus {
   text-align: left;
 }
 
+.has-error input[type="checkbox"] + span {
+  border-color: #f45b63 !important;
+}
+
 .ui-checkbox input {
   display: none;
   width: 0.1px;
@@ -4294,7 +4298,7 @@ button.mfp-close:active {
 
 @media only screen and (max-width: 950px) {
   .detail__cta {
-    max-width: 270px;
+    max-width: 330px;
   }
   .detail__cta .banner__form-row {
     -webkit-box-orient: vertical;
@@ -4307,7 +4311,7 @@ button.mfp-close:active {
 
 @media only screen and (max-width: 768px) {
   .callback__cta {
-    max-width: 270px;
+    max-width: 330px;
   }
   .callback__cta .banner__form-row {
     -webkit-box-orient: vertical;
@@ -4345,6 +4349,12 @@ button.mfp-close:active {
   }
   .callback__cta .banner__form-el .w-300, .detail__cta .banner__form-el .w-300 {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .callback__cta, .detail__cta {
+    max-width: 270px;
   }
 }
 
@@ -4443,14 +4453,14 @@ button.mfp-close:active {
 }
 
 .steps .swiper-button-prev, .steps .swiper-button-next {
-  top: -webkit-calc(30% + 105px);
-  top: calc(30% + 105px);
+  top: -webkit-calc(27% + 105px);
+  top: calc(27% + 105px);
 }
 
 @media only screen and (max-width: 568px) {
   .steps .swiper-button-prev, .steps .swiper-button-next {
-    top: -webkit-calc(30% + 85px);
-    top: calc(30% + 85px);
+    top: -webkit-calc(27% + 85px);
+    top: calc(27% + 85px);
   }
 }
 
@@ -4492,7 +4502,7 @@ button.mfp-close:active {
   top: calc(22% + 180px);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .credit .swiper-button-prev, .credit .swiper-button-next {
     display: block;
   }
@@ -4702,7 +4712,7 @@ button.mfp-close:active {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  min-height: 100vh;
   background: #334e9a;
   padding-top: 70px;
   padding-bottom: 70px;
@@ -4814,6 +4824,12 @@ button.mfp-close:active {
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .mobile-navi__menu {
+    padding: 5px 0;
+  }
+}
+
 @media only screen and (max-width: 640px) {
   .header__phone {
     display: block;
@@ -4899,6 +4915,20 @@ button.mfp-close:active {
   .footer p {
     margin: 0;
   }
+  .footer .header__logo {
+    -webkit-flex-basis: auto;
+        -ms-flex-preferred-size: auto;
+            flex-basis: auto;
+    max-width: 205px;
+  }
+  .footer .header__logo .icon {
+    -webkit-transform-origin: left center;
+        -ms-transform-origin: left center;
+            transform-origin: left center;
+    -webkit-transform: scale(0.65);
+        -ms-transform: scale(0.65);
+            transform: scale(0.65);
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -4919,6 +4949,15 @@ button.mfp-close:active {
   }
   .footer .header__logo {
     padding-right: 0;
+    max-width: 100%;
+  }
+  .footer .header__logo .icon {
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+            transform: scale(0.9);
   }
   .footer .header__contact {
     margin-left: 0;
@@ -5078,6 +5117,7 @@ button.mfp-close:active {
 }
 
 .banner__form-el input[type='checkbox'] + span {
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   width: 20px;
@@ -5085,6 +5125,20 @@ button.mfp-close:active {
   margin-left: -15px;
   cursor: pointer;
   border: 2px solid rgba(237, 237, 237, 0.2);
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.banner__form-el input[type='checkbox'] + span:after {
+  display: inline-block;
+  content: ' ';
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  bottom: 5px;
+  left: 3px;
+  z-index: 2;
   background: url("../img/checkbox.png") no-repeat center top;
   -webkit-background-size: 0 100%;
           background-size: 0 100%;
@@ -5112,7 +5166,7 @@ button.mfp-close:active {
   cursor: pointer;
 }
 
-.banner__form-el input[type='checkbox']:checked + span {
+.banner__form-el input[type='checkbox']:checked + span:after {
   -webkit-background-size: 100% 100%;
           background-size: 100% 100%;
 }
@@ -5617,6 +5671,18 @@ h1 {
   display: none;
   position: absolute;
   right: 30px;
+  top: 50%;
+  cursor: pointer;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.materials__arrow:hover {
+  opacity: .8;
 }
 
 @media only screen and (max-width: 992px) {
@@ -5774,10 +5840,6 @@ h1 {
   padding-top: 50px;
   padding-bottom: 50px;
   background: white;
-}
-
-.steps__carousel {
-  overflow: visible;
 }
 
 .steps__carousel .why__item {
@@ -6082,7 +6144,8 @@ h1 {
 
 @media only screen and (max-width: 375px) {
   .project {
-    padding: 30px 0;
+    padding: 30px 0 50px 0;
+    min-height: 1px;
   }
   .project p {
     margin-left: -10px;
@@ -6094,6 +6157,7 @@ h1 {
   .project .project__cta {
     margin-top: 0;
     margin-bottom: 0;
+    padding-bottom: 0;
   }
   .project .project__cta-title {
     margin: 0;
@@ -6298,6 +6362,9 @@ h1 {
   .bank__item:after {
     left: 5px;
     right: 5px;
+  }
+  .bank__item:last-child {
+    margin-bottom: 25px;
   }
   .bank__item i {
     -webkit-transform: scale3d(0.75, 0.75, 0.75);
@@ -6530,6 +6597,7 @@ h1 {
   }
   .contact .contact__info-col h1 {
     margin-bottom: 20px;
+    text-align: center;
   }
   .contact__el {
     font-size: 13px;
