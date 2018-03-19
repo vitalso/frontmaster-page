@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- MADE WITH LOVE BY <> KHMELEVSKOY & ASSOCIATES </> www.khmelevskoy.co-->
+    <meta charset="utf-8">
+    <title>Frontmaster 2</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    <meta name="format-detection" content="telephone=no">
+    <!-- remove for production-->
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" media="all" href="css/app.css"><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- place where pjax bindings happen's-->
+    <!-- HEADER :: START-->
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper"><a class="header__logo" href="#"><i class="icon icon-logo"></i></a>
+          <ul class="header__menu">
+            <li><a class="header__menu-link" href="#about">О нас</a></li>
+            <li><a class="header__menu-link" href="#source">Материалы</a></li>
+            <li><a class="header__menu-link" href="#calculate">Расчет монтажа</a></li>
+            <li><a class="header__menu-link" href="#works">Наши работы</a></li>
+            <li><a class="header__menu-link" href="#credit">Кредит</a></li>
+            <li><a class="header__menu-link" href="#contact">Контакты</a></li>
+          </ul>
+          <div class="header__contact">
+            <div class="contact-phone">+7 (499) 490-89-86</div><a class="contact-callback" href="#callback">Заказать обратный звонок</a>
+          </div>
+          <div class="header__phone"><a href="tel: +7 (499) 490-89-86">
+              <svg class="ico ico-phone-call">
+                <use xlink:href="img/sprite.svg#ico-phone-call"></use>
+              </svg></a></div>
+          <div class="header__hamburger">
+            <div class="hamburger hamburger--squeeze" js-hamburger>
+              <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- HEADER :: END-->
+    <!-- Mobile nav-->
+    <div class="mobile-navi">
+      <div class="mobile-navi__wrapper">
+        <ul class="mobile-navi__menu">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#source">Материалы</a></li>
+          <li><a href="#calculate">Расчет монтажа</a></li>
+          <li><a href="#works">Наши работы</a></li>
+          <li><a href="#credit">Кредит</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="mobile-navi__phone">
+        <p>Ежедневно с 9:00 до 21:00</p><strong>+7 (499) 490-89-86</strong>
+      </div>
+    </div>
+    <!-- what should be changed with every pjax-->
+    <div class="page">
+      <div class="page__content">
+        <!-- BANNER-->
+        <div class="banner">
+          <div class="container">
+            <div class="wrapper justify-between self-start">
+              <div class="banner__describe">
+                <h1 class="banner__title wow">Монтаж фасада загородного дома под ключ</h1>
+                <p class="wow" data-animation-delay=".1s">Любого уровня сложности! <br> Различные материалы и системы!</p>
+                <ul class="banner__describe-list mobile-hidden">
+                  <li class="wow" data-animation-delay=".2s"><i class="icon icon-banner-list-icon"></i>Робота по договору</li>
+                  <li class="wow" data-animation-delay=".3s"><i class="icon icon-banner-list-icon"></i>Гарантия 2 года</li>
+                  <li class="wow" data-animation-delay=".4s"><i class="icon icon-banner-list-icon"></i>Россрочка на 12 месяцев <br> без переплат</li>
+                </ul>
+                <div class="mobile-show"><a class="btn-primary contact-callback" href="#callback">ОТПРАВИТЬ ЗАЯВКУ</a></div>
+              </div>
+              <div class="banner__cta mobile-hidden wow" data-animation-delay=".7s" data-animation-class="wowFadeRight">
+                <h3 class="banner__cta__title">Только до 28 февраля</h3>
+                <p class="banner__cta__subtitle">Замер + смета = 2 500 руб. <br> <span>дизайн-проект</span> в подарок!</p>
+                <form class="banner__form" action="">
+                  <div class="banner__form-el">
+                    <input type="checkbox" value="Нужен монтажник" id="checkbox-1"><span></span>
+                    <label for="checkbox-1">Нужен монтажник</label>
+                  </div>
+                  <div class="banner__form-el">
+                    <input type="checkbox" value="Нужны материалы" id="checkbox-2" checked><span></span>
+                    <label for="checkbox-2">Нужны материалы</label>
+                  </div>
+                  <div class="banner__form-el">
+                    <input type="checkbox" value="Нужно утепление" id="checkbox-3"><span></span>
+                    <label for="checkbox-3">Нужно утпеление</label>
+                  </div>
+                  <div class="banner__form-el">
+                    <input type="tel" name="phone" placeholder="Номер телефона">
+                  </div>
+                  <div class="banner__form-el form-el-size">
+                    <input type="checkbox" value="Согласен на обработку данных" name="agree_1" id="agree_1" checked><span></span>
+                    <label for="agree_1">Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a></label>
+                  </div>
+                  <div class="banner__form-el">
+                    <input type="submit" value="ОТПРАВИТЬ ЗАЯВКУ">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END BANNER-->
+        <!-- WHY US-->
+        <div class="why" id="about">
+          <div class="container">
+            <h1 class="text-center wow">Почему мы</h1>
+            <div class="why__carousel swiper-container">
+              <div class="swiper-wrapper">
+                <div class="why__item text-center wow" data-animation-delay=".1s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-why-1">
+                      <use xlink:href="img/sprite.svg#ico-why-1"></use>
+                    </svg>
+                  </div>
+                  <p>Работа по договору, <br> Гарантия 2 года</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".2s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-why-2">
+                      <use xlink:href="img/sprite.svg#ico-why-2"></use>
+                    </svg>
+                  </div>
+                  <p>Рассрочка <br> на 12 месяцев <br> без предоплаты</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".3s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-why-3">
+                      <use xlink:href="img/sprite.svg#ico-why-3"></use>
+                    </svg>
+                  </div>
+                  <p>Все работы по ГОСТам <br> и СНИПам (фотоотчет)</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".4s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-why-4">
+                      <use xlink:href="img/sprite.svg#ico-why-4"></use>
+                    </svg>
+                  </div>
+                  <p>Разработка <br> дизайн-проекта <br> в процессе замера</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".5s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-why-5">
+                      <use xlink:href="img/sprite.svg#ico-why-5"></use>
+                    </svg>
+                  </div>
+                  <p>Автономное проживание <br> на объекте, русские <br> строители</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev why-prev"></div>
+            <div class="swiper-button-next why-next"></div>
+          </div>
+        </div>
+        <!-- MATERIALS VARIANT-->
+        <div class="materials" id="source">
+          <div class="container">
+            <h1 class="text-center wow">Варианты кровельных материалов</h1>
+            <div class="materials__carousel swiper-container">
+              <div class="swiper-wrapper">
+                <div class="materials__item text-center wow" data-animation-delay=".1s">
+                  <div class="materials__item-info">
+                    <div class="materials__item-icon"><img src="img/materials-1.png" srcset="img/materials-1@2x.png 2x"></div>
+                    <p>Под дерево</p>
+                    <div class="materials__arrow"><i class="icon icon-arrow-down"></i></div>
+                    <div class="materials__item-description">
+                      <p>Лучшее решение для дачных <br> домов, использующихся <br> в летнее время года. <br> Быстрый монтаж, дешевое <br> обслуживание.</p><a class="detail btn-primary" href="#detail">УЗНАТЬ БОЛЬШЕ</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="materials__item text-center wow" data-animation-delay=".2s">
+                  <div class="materials__item-info">
+                    <div class="materials__item-icon"><img src="img/materials-2.png" srcset="img/materials-2@2x.png 2x"></div>
+                    <p>Под камень</p>
+                    <div class="materials__arrow"><i class="icon icon-arrow-down"></i></div>
+                    <div class="materials__item-description">
+                      <p>Лучшее решение для дачных <br> домов, использующихся <br> в летнее время года. <br> Быстрый монтаж, дешевое <br> обслуживание.</p><a class="detail btn-primary" href="#detail">УЗНАТЬ БОЛЬШЕ</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="materials__item text-center wow" data-animation-delay=".3s">
+                  <div class="materials__item-info">
+                    <div class="materials__item-icon"><img src="img/materials-3.png" srcset="img/materials-3@2x.png 2x"></div>
+                    <p>Под курпич</p>
+                    <div class="materials__arrow"><i class="icon icon-arrow-down"></i></div>
+                    <div class="materials__item-description">
+                      <p>Лучшее решение для дачных <br> домов, использующихся <br> в летнее время года. <br> Быстрый монтаж, дешевое <br> обслуживание.</p><a class="detail btn-primary" href="#detail">УЗНАТЬ БОЛЬШЕ</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="materials__item text-center wow" data-animation-delay=".4s">
+                  <div class="materials__item-info">
+                    <div class="materials__item-icon"><img src="img/materials-4.png" srcset="img/materials-4@2x.png 2x"></div>
+                    <p>Под штукатурку</p>
+                    <div class="materials__arrow"><i class="icon icon-arrow-down"></i></div>
+                    <div class="materials__item-description">
+                      <p>Лучшее решение для дачных <br> домов, использующихся <br> в летнее время года. <br> Быстрый монтаж, дешевое <br> обслуживание.</p><a class="detail btn-primary" href="#detail">УЗНАТЬ БОЛЬШЕ</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="materials__item text-center wow" data-animation-delay=".5s">
+                  <div class="materials__item-info">
+                    <div class="materials__item-icon"><img src="img/materials-5.png" srcset="img/materials-5@2x.png 2x"></div>
+                    <p>Индивидуальный <br> дизайн</p>
+                    <div class="materials__arrow"><i class="icon icon-arrow-down"></i></div>
+                    <div class="materials__item-description">
+                      <p>Лучшее решение для дачных <br> домов, использующихся <br> в летнее время года. <br> Быстрый монтаж, дешевое <br> обслуживание.</p><a class="detail btn-primary" href="#detail">УЗНАТЬ БОЛЬШЕ</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev material-prev"></div>
+            <div class="swiper-button-next material-next"></div>
+          </div>
+        </div>
+        <!-- CALCULATE-->
+        <div class="calculate" id="calculate">
+          <div class="container">
+            <h1 class="text-center color-white wow">Расчет стоимости монтажа</h1>
+            <div class="wrapper">
+              <form class="calculate__form wow" action="#" js-calculateForm data-animation-delay=".1s">
+                <div class="banner__form-el position-relative">
+                  <select name="house">
+                    <option value="Загородный дом">Загородный дом</option>
+                    <option value="Котедж">Котедж</option>
+                    <option value="Вилла">Вилла</option>
+                    <option value="Особняк">Особняк</option>
+                  </select>
+                </div>
+                <div class="banner__form-row">
+                  <div class="banner__form-el">
+                    <input class="form-el-custom-size" type="text" name="square" placeholder="Площадь фасада"><span class="square__number">кв.м</span>
+                  </div>
+                  <div class="banner__form-el position-relative">
+                    <select name="material">
+                      <option value="Материал">Материал</option>
+                      <option value="Дерево">Дерево</option>
+                      <option value="Кирпич">Кирпич</option>
+                      <option value="Штукатурка">Штукатурка</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="banner__form-el">
+                  <input type="checkbox" value="Нужно утепление" name="warming" id="checkbox-5"><span></span>
+                  <label for="checkbox-5">Нужно утепление</label>
+                </div>
+                <div class="banner__form-result text-center">
+                  <p class="form__result-title">Стоимость: <br><strong>от <i>1 500</i> рублей</strong></p>
+                  <p class="form__result-subtitle">В кредит от <i>142</i> рублей в месяц</p>
+                </div>
+                <div class="banner__form-el form-el-size">
+                  <input type="checkbox" value="Согласен на обработку данных" id="agree_2" name="agree_2" checked><span></span>
+                  <label for="agree_2">Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a></label>
+                </div>
+                <div class="banner__form-el banner__form-cta">
+                  <input type="submit" value="ОТПРАВИТЬ ЗАЯВКУ">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- STEPS WORK-->
+        <div class="steps">
+          <div class="container">
+            <h1 class="text-center wow">Схема работы</h1>
+            <!--.wrapper.justify-between.self-start-->
+            <div class="steps__carousel swiper-container">
+              <div class="swiper-wrapper">
+                <div class="why__item text-center wow" data-animation-delay=".1s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-step-1">
+                      <use xlink:href="img/sprite.svg#ico-step-1"></use>
+                    </svg>
+                  </div>
+                  <p>Оставляете заявку, <br> согласовываем дату <br> и время замера</p><span class="steps__number">01</span>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".2s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-step-2">
+                      <use xlink:href="img/sprite.svg#ico-step-2"></use>
+                    </svg>
+                  </div>
+                  <p>Проведение замера <br> с демонстрацией <br> материалов и бесплатным <br> дизайн-проектом</p><span class="steps__number">02</span>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".3s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-step-3">
+                      <use xlink:href="img/sprite.svg#ico-step-3"></use>
+                    </svg>
+                  </div>
+                  <p>Заключение договора <br> и оплата материалов</p><span class="steps__number">03</span>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".4s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-step-4">
+                      <use xlink:href="img/sprite.svg#ico-step-4"></use>
+                    </svg>
+                  </div>
+                  <p>Осуществление монтажных <br> работ (доставка материалов, <br> установка лесов, монтажные <br> работы)</p><span class="steps__number">04</span>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".5s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-step-5">
+                      <use xlink:href="img/sprite.svg#ico-step-5"></use>
+                    </svg>
+                  </div>
+                  <p>Приемка и оплата <br> монтажных работ, и Вы <br> наслаждаетесь новой <br> кровлей!</p><span class="steps__number">05</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev steps-prev"></div>
+            <div class="swiper-button-next steps-next"></div>
+          </div>
+        </div>
+        <!-- WORKS-->
+        <div class="works" id="works">
+          <div class="container">
+            <h1 class="text-center wow">Примеры наших работ</h1>
+            <div class="works__example swiper-container">
+              <div class="swiper-wrapper">
+                <div class="works__example-slide">
+                  <div class="slide__compare"><img src="img/work-after-1.jpg" alt="example-1"><img src="img/work-before-1.jpg" alt="example-1"></div>
+                </div>
+                <div class="works__example-slide">
+                  <div class="slide__compare"><img src="img/work-after-2.jpg" alt="example-2"><img src="img/work-before-2.jpg" alt="example-2"></div>
+                </div>
+                <div class="works__example-slide">
+                  <div class="slide__compare"><img src="img/work-after-3.jpg" alt="example-3"><img src="img/work-before-3.jpg" alt="example-3"></div>
+                </div>
+                <div class="works__example-slide">
+                  <div class="slide__compare"><img src="img/work-after-4.jpg" alt="example-4"><img src="img/work-before-4.jpg" alt="example-4"></div>
+                </div>
+                <div class="works__example-slide">
+                  <div class="slide__compare"><img src="img/work-after-1.jpg" alt="example-1"><img src="img/work-before-1.jpg" alt="example-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev works-prev"></div>
+            <div class="swiper-button-next works-next"></div>
+          </div>
+        </div>
+        <!-- REVIEWS-->
+        <div class="reviews">
+          <div class="container">
+            <h1 class="text-center wow">Отзывы довольных клиентов</h1>
+            <div class="reviews__carousel swiper-container">
+              <div class="swiper-wrapper">
+                <div class="reviews__carousel-item wow" data-animation-delay=".1s"><a class="review__play" href="http://www.youtube.com/watch?v=Km5OTsyZkJE"><i class="icon icon-play-icon"></i><i class="icon icon-play-icon-active"></i><img src="img/review-1.jpg" alt="review"></a></div>
+                <div class="reviews__carousel-item wow" data-animation-delay=".2s"><a class="review__play" href="http://www.youtube.com/watch?v=Km5OTsyZkJE"><i class="icon icon-play-icon"></i><i class="icon icon-play-icon-active"></i><img src="img/review-2.jpg" alt="review"></a></div>
+                <div class="reviews__carousel-item wow" data-animation-delay=".3s"><a class="review__play" href="http://www.youtube.com/watch?v=Km5OTsyZkJE"><i class="icon icon-play-icon"></i><i class="icon icon-play-icon-active"></i><img src="img/review-3.jpg" alt="review"></a></div>
+                <div class="reviews__carousel-item wow" data-animation-delay=".4s"><a class="review__play" href="http://www.youtube.com/watch?v=Km5OTsyZkJE"><i class="icon icon-play-icon"></i><i class="icon icon-play-icon-active"></i><img src="img/review-1.jpg" alt="review"></a></div>
+              </div>
+            </div>
+            <div class="swiper-button-prev reviews-prev"></div>
+            <div class="swiper-button-next reviews-next"></div>
+          </div>
+        </div>
+        <!-- PROJECT-->
+        <div class="project">
+          <div class="container">
+            <div class="project__cta text-center wow">
+              <h3 class="project__cta-title">Замер + дизайн-проект + смета</h3>
+              <p class="project__cta-subtitle">Всего 2500 рублей <span>только до 28 февраля</span></p>
+              <p>Отправьте заявку прямо сейчас и получите <br> консультацию специалиста <strong>бесплатно!</strong></p>
+              <form class="project__cta-form" action="#">
+                <div class="banner__form-el">
+                  <input type="tel" name="phone" placeholder="Номер телефона">
+                </div>
+                <div class="banner__form-el">
+                  <input type="submit" value="ОТПРАВИТЬ">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- CREDIT-->
+        <div class="credit" id="credit">
+          <div class="container">
+            <h1 class="text-center wow">Фасад в кредит до 1 000 000 рублей!</h1>
+            <p class="credit__subtitle text-center wow" data-animation-delay=".1s">Мы убеждены, что ремонт должен быть доступным!</p>
+            <!--.wrapper.justify-between.self-start-->
+            <div class="credit__carousel swiper-container">
+              <div class="swiper-wrapper">
+                <div class="why__item text-center wow" data-animation-delay=".1s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-credit-1">
+                      <use xlink:href="img/sprite.svg#ico-credit-1"></use>
+                    </svg>
+                  </div>
+                  <p>Сумма кредита <br> до 1 млн.руб.</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".2s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-credit-2">
+                      <use xlink:href="img/sprite.svg#ico-credit-2"></use>
+                    </svg>
+                  </div>
+                  <p>Рассмотрение <br> заявки за 15 минут</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".3s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-credit-3">
+                      <use xlink:href="img/sprite.svg#ico-credit-3"></use>
+                    </svg>
+                  </div>
+                  <p>Возможность <br> оформления <br> кредита онлайн</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".4s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-credit-4">
+                      <use xlink:href="img/sprite.svg#ico-credit-4"></use>
+                    </svg>
+                  </div>
+                  <p>Для оформления <br> нужен только <br> паспорт</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".5s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-credit-5">
+                      <use xlink:href="img/sprite.svg#ico-credit-5"></use>
+                    </svg>
+                  </div>
+                  <p>Возможно <br> без первоначального <br> взноса</p>
+                </div>
+                <div class="why__item text-center wow" data-animation-delay=".6s">
+                  <div class="why__item-icon">
+                    <svg class="ico ico-credit-6">
+                      <use xlink:href="img/sprite.svg#ico-credit-6"></use>
+                    </svg>
+                  </div>
+                  <p>Высокая степень <br> одобрения</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev credit-prev"></div>
+            <div class="swiper-button-next credit-next"></div>
+          </div>
+        </div>
+        <!-- WORK WITH BANK-->
+        <div class="bank">
+          <div class="container">
+            <h3 class="bank__title text-center wow">Мы сотрудничаем с банками</h3>
+            <div class="wrapper justify-between self-start">
+              <div class="bank__item wow" data-animation-delay=".1s"><i class="icon icon-bank-1"></i></div>
+              <div class="bank__item wow" data-animation-delay=".2s"><i class="icon icon-bank-2"></i></div>
+              <div class="bank__item wow" data-animation-delay=".3s"><i class="icon icon-bank-3"></i></div>
+              <div class="bank__item wow" data-animation-delay=".4s"><i class="icon icon-bank-4"></i></div>
+              <div class="bank__item wow" data-animation-delay=".5s"><i class="icon icon-bank-5"></i></div>
+              <div class="bank__item wow" data-animation-delay=".6s"><i class="icon icon-bank-6"></i></div>
+            </div>
+            <div class="text-center wow"><a class="btn-primary detail" href="#detail">ОСТАВИТЬ ЗАЯВКУ НА МОНТАЖ В КРЕДИТ</a></div>
+          </div>
+        </div>
+        <!-- MAP-->
+        <div class="wow" id="map"></div>
+        <!-- Contact-->
+        <div class="contact" id="contact">
+          <div class="container">
+            <div class="contact__info">
+              <div class="contact__info-col wow">
+                <h1>Контактная информация</h1>
+              </div>
+              <div class="contact__info-col wow" data-animation-delay=".15s">
+                <div class="contact__el">
+                  <svg class="ico ico-location">
+                    <use xlink:href="img/sprite.svg#ico-location"></use>
+                  </svg>
+                  <p>ул. Балтийская, д.5, Центр <br> Культуры и Бизнеса «Москва-Сокол», <br> г.Москва, 125190</p>
+                </div>
+                <div class="contact__el">
+                  <svg class="ico ico-location">
+                    <use xlink:href="img/sprite.svg#ico-location"></use>
+                  </svg>
+                  <p>д. Елизаветино, д. 202 <br> (67-й км автодороги А104 Москва-Дубна), <br> Московская обл., 141840</p>
+                </div>
+              </div>
+              <div class="contact__info-col wow" data-animation-delay=".3s">
+                <div class="contact__el contact__el--phone">
+                  <svg class="ico ico-phone">
+                    <use xlink:href="img/sprite.svg#ico-phone"></use>
+                  </svg>
+                  <p><a href="tel:+74994908986#19"><strong>+7 (499) 490-89-86</strong></a> доб. 19 <br> <a href="tel:+74994908986#19"><strong>+7 (499) 490-89-86</strong></a></p>
+                </div>
+                <div class="contact__el contact__el--mail">
+                  <svg class="ico ico-mail">
+                    <use xlink:href="img/sprite.svg#ico-mail"></use>
+                  </svg>
+                  <p><a href="mailto: msk@frontmaster.su">msk@frontmaster.su</a></p>
+                </div>
+                <div class="contact__el">
+                  <svg class="ico ico-time">
+                    <use xlink:href="img/sprite.svg#ico-time"></use>
+                  </svg>
+                  <p>ежедневно с 10:00 до 19:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FOOTER :: START-->
+      <footer class="footer">
+        <div class="container">
+          <div class="wrapper justify-between align-center"><a class="header__logo wow" href="#"><i class="icon icon-logo"></i></a>
+            <p class="wow" data-wow-delay=".1s">Рассрочка предоставляется в виде скидки на товары компании-поставщика</p>
+            <div class="header__contact wow" data-wow-delay=".2s"><span>Ежедневно с 9:00 до 21:00</span>
+              <div class="contact-phone">+7 (499) 490-89-86</div><a class="contact-callback" href="#callback">Заказать обратный звонок</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- FOOTER :: END-->
+      <!-- Popup-->
+      <!-- Callback-->
+      <div class="white-popup-block mfp-hide" id="callback">
+        <div class="callback__cta">
+          <h1 class="callback__title text-center">Заказать обратный <br> звонок</h1>
+          <form class="callback__form" action="#">
+            <div class="banner__form-row">
+              <div class="banner__form-el">
+                <input class="w-300" type="text" name="name" placeholder="Ваше имя">
+              </div>
+              <div class="banner__form-el">
+                <input class="w-300" type="tel" name="phone" placeholder="Номер телефона">
+              </div>
+            </div>
+            <div class="banner__form-el form-el-size">
+              <input type="checkbox" value="Согласен на обработку данных" id="agree_3" name="agree_3" checked><span></span>
+              <label for="agree_3">Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a></label>
+            </div>
+            <div class="banner__form-el margin-top-50 text-center">
+              <input class="w-300" type="submit" value="ЗАКАЗАТЬ ЗВОНОК">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Detail-->
+      <div class="white-popup-block mfp-hide" id="detail">
+        <div class="detail__cta">
+          <h1 class="callback__title text-center">Бесплатная <br> консультация</h1>
+          <form class="detail__form" action="#">
+            <div class="banner__form-row">
+              <div class="banner__form-el">
+                <input class="w-300" type="text" name="name" placeholder="Ваше имя">
+              </div>
+              <div class="banner__form-el">
+                <input class="w-300" type="tel" name="phone" placeholder="Телефон">
+              </div>
+              <div class="banner__form-el">
+                <input class="w-300" type="text" name="email" placeholder="E-mail">
+              </div>
+            </div>
+            <div class="banner__form-el form-el-size">
+              <input type="checkbox" value="Согласен на обработку данных" id="agree_4" name="agree_4" checked><span></span>
+              <label for="agree_4">Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a></label>
+            </div>
+            <div class="banner__form-el margin-top-50 text-center">
+              <input class="w-300" type="submit" value="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Privacy-->
+      <div class="white-popup-block mfp-hide" id="privacy">
+        <div class="privacy__cta">
+          <h1 class="privacy__title text-center">Политика обработки <br> персональных данных</h1>
+          <h3 class="privacy__subtitle">Назначение и область определения</h3>
+          <p>Настоящий документ описывает политику обработки, накопления и хранения документов, содержащих сведения, отнесенные к персональным данным.</p>
+          <p>Цель разработки настоящей Политики – обеспечение защиты прав и свобод человека и гражданина, при обработке его персональных данных, в том числе права на неприкосновенность частной жизни, личную и семейную тайну, а также установление ответственности должностных лиц, имеющих доступ к персональным данным, за невыполнение требований норм, регулирующих обработку и защиту персональных данных.</p>
+          <h3 class="privacy__subtitle">Сокращения, основные понятия и термины</h3>
+          <p>Персональные данные - любая информация, относящаяся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных);</p>
+          <p>Оператор - государственный орган, муниципальный орган, юридическое или физическое лицо, самостоятельно или совместно с другими лицами организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными;</p>
+          <p>Обработка персональных данных - любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных;</p>
+        </div>
+      </div>
+      <!-- Success-->
+      <div class="white-popup-block mfp-hide" id="success">
+        <div class="callback__cta">
+          <h1 class="callback__title text-center">Заявка успешно <br> отправлена!</h1>
+          <p class="text-center">Ваша заявка отправлена. Наши менеджеры <br> свяжутся с вами в ближайшее время</p>
+        </div>
+      </div>
+    </div>
+    <script src="js/vendor.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCckDijxBhuA9xN90UgySJJQkJFUXzHrwA"></script>
+  </body>
+</html>

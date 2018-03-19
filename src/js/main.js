@@ -119,17 +119,92 @@ $(document).ready(function(){
     menuItems.removeClass("active-link").filter("[href='#"+id+"']").addClass("active-link");
   }, 20));
 
+
+
+  var preventKeys = {
+    37: 1, 38: 1, 39: 1, 40: 1
+  };
+
+  function preventDefault(e) {
+    e = e || window.event;
+    if (e.preventDefault)
+      e.preventDefault();
+    e.returnValue = false;
+  }
+
+  function preventDefaultForScrollKeys(e) {
+    if (preventKeys[e.keyCode]) {
+      preventDefault(e);
+      return false;
+    }
+  }
+
+  function disableScroll() {
+    var target = $('body').get(0)
+    if (window.addEventListener) // older FF
+      target.addEventListener('DOMMouseScroll', preventDefault, false);
+    target.onwheel = preventDefault; // modern standard
+    target.onmousewheel = target.onmousewheel = preventDefault; // older browsers, IE
+    target.ontouchmove = preventDefault; // mobile
+    target.onkeydown = preventDefaultForScrollKeys;
+
+    console.log('disabled')
+  }
+
+  // function bindOverflowScroll(){
+  //   var $menuLayer = $(".menu-box");
+  //   $menuLayer.bind('touchstart', function (ev) {
+  //       var $this = $(this);
+  //       var layer = $menuLayer.get(0);
+  //
+  //       if ($this.scrollTop() === 0) $this.scrollTop(1);
+  //       var scrollTop = layer.scrollTop;
+  //       var scrollHeight = layer.scrollHeight;
+  //       var offsetHeight = layer.offsetHeight;
+  //       var contentHeight = scrollHeight - offsetHeight;
+  //       if (contentHeight == scrollTop) $this.scrollTop(scrollTop-1);
+  //   });
+  // }
+  // bindOverflowScroll();
+  // var container = document.querySelector('.menu-box');
+  // var ps = new PerfectScrollbar(container);
+
+
+  function enableScroll() {
+    var target = $('body').get(0)
+    if (window.removeEventListener)
+      target.removeEventListener('DOMMouseScroll', preventDefault, false);
+    target.onmousewheel = target.onmousewheel = null;
+    target.onwheel = null;
+    target.ontouchmove = null;
+    target.onkeydown = null;
+  }
+
+  function blockScroll(unlock) {
+    if ($('[js-hamburger]').is('.is-active')) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+    if (unlock) {
+      enableScroll();
+    }
+  };
+
+
   // HAMBURGER TOGGLER
   _document.on('click', '[js-hamburger]', function(){
     $(this).toggleClass('is-active');
     $('.header').toggleClass('is-blue');
     $('.mobile-navi').toggleClass('is-active');
+    blockScroll();
   });
 
   function closeMobileMenu(){
     $('[js-hamburger]').removeClass('is-active');
     $('.header').removeClass('is-blue');
     $('.mobile-navi').removeClass('is-active');
+    blockScroll(true);
   }
 
 
@@ -319,6 +394,7 @@ $(document).ready(function(){
       // setWrapperSize: true,
       spaceBetween: 0,
       slidesPerView: 5,
+      // loop: true,
       normalizeSlideIndex: true,
       // centeredSlides: true,
       freeMode: false,
@@ -340,6 +416,7 @@ $(document).ready(function(){
       // setWrapperSize: true,
       slidesPerView: 5,
       spaceBetween: 0,
+      // loop: true,
       // normalizeSlideIndex: true,
       // centeredSlides: true,
       freeMode: false,
@@ -357,6 +434,7 @@ $(document).ready(function(){
       slideClass: "why__item",
       direction: 'horizontal',
       watchOverflow: true,
+      loop: true,
       slidesPerView: 'auto',
       navigation: {
         nextEl: '.credit-next',
@@ -382,10 +460,10 @@ $(document).ready(function(){
     var swiperCredit = undefined
 
     function checkSwiperCredit(){
-      if ( _window.width() > 768 && swiperCredit !== undefined) {
+      if ( _window.width() > 767 && swiperCredit !== undefined) {
         swiperCredit.destroy();
         swiperCredit = undefined
-      } else if ( _window.width() < 768 && swiperCredit === undefined ) {
+      } else if ( _window.width() < 767 && swiperCredit === undefined ) {
         swiperCredit = new Swiper ('.credit__carousel', creditSwiperOptions)
       }
     }
@@ -401,6 +479,7 @@ $(document).ready(function(){
       direction: 'horizontal',
       watchOverflow: true,
       slidesPerView: 4,
+      loop: true,
       spaceBetween: 30,
       noSwipingClass: "slide__compare",
       navigation: {
@@ -431,6 +510,7 @@ $(document).ready(function(){
       direction: 'horizontal',
       watchOverflow: true,
       slidesPerView: 3,
+      loop: true,
       spaceBetween: 25,
       navigation: {
         nextEl: '.reviews-next',
@@ -456,12 +536,22 @@ $(document).ready(function(){
   }
 
   // Accordion for materials om mobile
-  $('.materials__item').on('click' , function(){
+  $('.materials__item').on('click' , function(e){
+    if ( e.target.closest('.materials__arrow') ){
+      return;
+    }
     if ( _window.width() < 568 ){
       $('.materials__item').not($(this)).removeClass('is-show');
       $(this).addClass('is-show');
     }
   });
+
+  $('.materials__arrow').on('click', function(){
+    if ( _window.width() < 568 ){
+      $('.materials__item').not($(this).closest('.materials__item')).removeClass('is-show');
+      $(this).closest('.materials__item').toggleClass('is-show');
+    }
+  })
 
   _window.on('resize', debounce(function(){
     if ( _window.width() > 568 ){
@@ -601,8 +691,9 @@ $(document).ready(function(){
         map = new google.maps.Map(document.getElementById('map'), {
             center: coordinates,
             zoom: 16,
-            disableDefaultUI: false,
-            scrollwheel: false
+            disableDefaultUI: true,
+            scrollwheel: false,
+            zoomControl: _window.width() > 568 ? true : false,
         }),
 
         image = 'img/map-marker.png',

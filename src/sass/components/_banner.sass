@@ -83,6 +83,7 @@
     &:hover + span
       border: 2px solid rgba($borderInput , 1)
     & + span
+      position: relative
       display: inline-block
       vertical-align: middle
       width: 20px
@@ -90,8 +91,18 @@
       margin-left: -15px
       cursor: pointer
       border: 2px solid rgba($borderInput , .2)
-      background: url('../img/checkbox.png') no-repeat center top
-      background-size: 0 100%
+      &::after
+        display: inline-block
+        content: ' '
+        position: absolute
+        right: -2px
+        top: -2px
+        bottom: 5px
+        left: 3px
+        z-index: 2
+        background: url('../img/checkbox.png') no-repeat center top
+        background-size: 0 100%
+        transition: all .25s $ease
       transition: all .25s $ease
       &:hover
         border: 2px solid rgba($borderInput , 1)
@@ -107,7 +118,8 @@
     cursor: pointer
 
   input[type='checkbox']:checked + span
-    background-size: 100% 100%
+    &::after
+      background-size: 100% 100%
 
   input[type='text'] , input[type='tel'] , input[type='email']
     width: 100%
