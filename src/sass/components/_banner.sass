@@ -95,7 +95,7 @@
       transition: all .25s $ease
       &:hover
         border: 2px solid rgba($borderInput , 1)
-  label
+  label:not(.ui-input__validation)
     flex: 1 1 auto
     width: 100%
     font-size: 15px
@@ -144,7 +144,7 @@
 
   &.form-el-size
     margin-top: 20px
-    label
+    label:not(.ui-input__validation)
       font-size: 13px
       line-height: 18px
       vertical-align: top
@@ -155,6 +155,8 @@
         &:hover
           color: $colorOrange
           border: none
+    .ui-input__validation
+      margin-top: 1em
 
   ::-webkit-input-placeholder
     color: #fff

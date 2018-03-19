@@ -7,15 +7,15 @@
     form(action="#").callback__form
       .banner__form-row
         .banner__form-el
-          input(type="text" , placeholder="Ваше имя").w-300
+          input(type="text"  name="name" placeholder="Ваше имя").w-300
         .banner__form-el
-          input(type="text" , placeholder="Номер телефона").w-300
+          input(type="text"  name="phone" placeholder="Номер телефона").w-300
       .banner__form-el.form-el-size
-        input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-2" , checked)
+        input(type="checkbox"  value="Согласен на обработку данных"  id="agree_3" name="agree_3" checked)
         span
-        label(for="checkbox-2") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
+        label(for="agree_3") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
       .banner__form-el.margin-top-50.text-center
-        input(type="submit" , value="ЗАКАЗАТЬ ЗВОНОК").w-300
+        input(type="submit"  value="ЗАКАЗАТЬ ЗВОНОК").w-300
 
 // Detail
 #detail.white-popup-block.mfp-hide
@@ -24,17 +24,17 @@
     form(action="#").detail__form
       .banner__form-row
         .banner__form-el
-          input(type="text" , placeholder="Ваше имя").w-300
+          input(type="text"  name="name" placeholder="Ваше имя").w-300
         .banner__form-el
-          input(type="text" , placeholder="Телефон").w-300
+          input(type="text"  name="phone" placeholder="Телефон").w-300
         .banner__form-el
-          input(type="text" , placeholder="E-mail").w-300
+          input(type="text"  name="email" placeholder="E-mail").w-300
       .banner__form-el.form-el-size
-        input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-2" , checked)
+        input(type="checkbox"  value="Согласен на обработку данных"  id="agree_4" name="agree_4" checked)
         span
-        label(for="checkbox-2") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
+        label(for="agree_4") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
       .banner__form-el.margin-top-50.text-center
-        input(type="submit" , value="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ").w-300
+        input(type="submit"  value="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ").w-300
 
 // Privacy
 #privacy.white-popup-block.mfp-hide

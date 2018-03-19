@@ -112,27 +112,31 @@ button.mfp-close
   font-size: 30px
   color: white !important
   opacity: 1
+  pointer-events: all
   transition: .25s $ease
+  svg
+    pointer-events: none
   &:hover
     transform: scale(1.2)
   &:active
-    top: 55px
+    top: 60px
   +r($mobile)
     right: 25px
     top: 30px
     &:active
-      top: 55px
+      top: 30px
 +r(950)
   .detail__cta
     max-width: 270px
-    .banner__form__row
+    .banner__form-row
       flex-direction: column
 
 +r($tablet)
   .callback__cta
     max-width: 270px
-    .banner__form__row
+    .banner__form-row
       flex-direction: column
+
     .callback__title
       font-size: 34px
       line-height: 44px
@@ -146,3 +150,15 @@ button.mfp-close
     .privacy__subtitle
       font-size: 16px
       line-height: 24px
+  .callback__cta, .detail__cta
+    .banner__form-row
+      .banner__form-el
+        max-width: 100%
+        width: 100%
+        .w-300
+          width: 100%
+    .banner__form-el
+      max-width: 100%
+      width: 100%
+      .w-300
+        width: 100%

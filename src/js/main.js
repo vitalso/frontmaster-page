@@ -515,7 +515,10 @@ $(document).ready(function(){
     });
   }
 
+  $('.mfp-close').on('click', closeMfp)
+
   function closeMfp(){
+    console.log('cliso')
     $.magnificPopup.close();
   }
 
