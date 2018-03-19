@@ -1,0 +1,89 @@
+
+.swiper-button-prev
+  left: 15px
+  background-image: url('../img/icon-arrow-left.png')
+  transform-origin: left center
+
+.swiper-button-next
+  right: 15px
+  background-image: url('../img/icon-arrow-right.png')
+  transform-origin: right center
+
+
+.why
+  .swiper-button-prev, .swiper-button-next
+    top: calc(25% + 85px)
+    +r($mobile)
+      top: calc(25% + 65px)
+
+.materials
+  .swiper-button-prev, .swiper-button-next
+    top: 55%
+    +r($desktop)
+      top: 35%
+    +r($mobile)
+      display: none
+
+.steps
+  .swiper-button-prev, .swiper-button-next
+    top: calc(30% + 105px)
+    +r($mobile)
+      top: calc(30% + 85px)
+
+.works
+  .swiper-button-prev, .swiper-button-next
+    top: calc(40% + 85px)
+    +r($mobile)
+      top: calc(40% + 65px)
+
+.reviews
+  .swiper-button-prev, .swiper-button-next
+    top: calc(37.5% + 95px)
+    +r($mobile)
+      top: calc(37.5% + 75px)
+
+.works, .reviews
+  .swiper-button-prev
+    left: -25px
+  .swiper-button-next
+    right: -25px
+
+
+.credit
+  .swiper-button-prev, .swiper-button-next
+    display: none
+    top: calc(22% + 180px)
+    +r($tablet)
+      display: block
+    +r(640)
+      top: calc(22% + 230px)
+    +r($mobile)
+      top: calc(22% + 185px)
+    +r(504)
+      top: calc(22% + 205px)
+
++r(1440)
+  .works, .reviews
+    .swiper-button-prev
+      left: 15px
+    .swiper-button-next
+      right: 15px
+
+
++r($desktop)
+  .swiper-button-prev, .swiper-button-next
+    transform: scale(0.55)
+
++r($tablet)
+  .credit
+
++r($mobile)
+  .works, .reviews
+    .swiper-button-prev
+      left: 7px
+    .swiper-button-next
+      right: 7px
+  .swiper-button-prev
+    left: 7px
+  .swiper-button-next
+    right: 7px

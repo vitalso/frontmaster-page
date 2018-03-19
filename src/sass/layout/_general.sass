@@ -1,6 +1,7 @@
 *
   box-sizing: border-box
   outline: none
+  -webkit-overflow-scrolling: touch
 
 a
   color: inherit
@@ -26,7 +27,15 @@ body, html
   -moz-osx-font-smoothing: grayscale
 
 .page
-  padding-top: 90px
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  overflow: hidden
+  &__content
+    padding-top: 90px
+    flex: 1 0 auto
+    background: $graySecondaryColor
+
 
 .wrapper
   display: flex
@@ -46,7 +55,7 @@ body, html
   padding-left: 60px
   padding-right: 60px
 
-+r($tablet)
++r($desktop)
   .container
     padding-left: 40px
     padding-right: 40px

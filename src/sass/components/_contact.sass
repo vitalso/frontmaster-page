@@ -1,9 +1,12 @@
 /* Contact
 .contact
-  background: $graySecondaryColor
-
+  position: relative
+  z-index: 2
+  // background: $graySecondaryColor
+  margin-top: -130px
+  pointer-events: none
   .container
-    max-height: 180px
+    // max-height: 180px
 
   .ico
     margin-top: 8px
@@ -24,20 +27,30 @@
     display: flex
     justify-content: space-between
     align-items: self-start
-    transform: translate(0 , -130px)
-    &__col
+    pointer-events: all
+    margin: 0 0px
+    &-col
+      padding-left: 5px
+      padding-right: 5px
       &:first-child
+        padding-left: 0
+        flex: 0 0 350px
         max-width: 350px
-
+      &:last-child
+        padding-right: 0
     h1
       margin-top: 0
       line-height: 46px
 
   .contact__el
+    display: flex
     font-size: 15px
     line-height: 27px
     margin-bottom: 20px
-
+    .ico
+      flex: 0 0 auto
+      &-location
+        margin-right: 5px
     p
       margin: 0
       display: inline-block
@@ -65,7 +78,7 @@
 
 /* Responsive for _contact component
 +r(1200)
-  .contact__info__col:first-child
+  .contact__info-col:first-child
     max-width: 250px
   .footer
     .header__contact
@@ -76,7 +89,7 @@
     .contact__info
       padding: 30px
       display: block
-      &__col
+      &-col
         display: inline-block
         vertical-align: top
         &:first-child
@@ -89,18 +102,22 @@
         &:last-child
           float: right
 
-+r($tablet)
-
-+r(700)
++r(767)
   .contact
     .contact__info
       padding: 20px
     .container
       max-height: none
-    .contact__info__col, .contact__info__col:last-child
+    .contact__info-col
+      max-width: 400px
+      margin-left: auto
+      margin-right: auto
+    .contact__info-col, .contact__info-col:last-child
       display: block
       float: none
-    .contact__info__col h1
+      padding-left: 0
+      padding-right: 0
+    .contact__info-col h1
       text-align: left
       font-size: 28px
       line-height: 38px
@@ -109,6 +126,23 @@
       padding-left: 5px
 
 +r($mobile)
-  .contact .contact__el
+  .contact
+    margin-top: 0
+    // padding-top: 40px
+    .container
+      padding-left: 0
+      padding-right: 0
+    .contact__info
+      padding: 40px 30px 20px
+    .contact__info-col
+      // margin-right: -10px
+      p
+        padding-left: 20px
+      br
+        display: none
+      h1
+        margin-bottom: 20px
+
+  .contact__el
     font-size: 13px
     line-height: 25px

@@ -18,14 +18,13 @@ $(document).ready(function(){
     initSliders();
     initScrollMonitor();
     initMasks();
-
-    // development helper
-    _window.on('resize', debounce(setBreakpoint, 200))
-
   }
 
   // this is a master function which should have all functionality
   pageReady();
+
+  // swiper fix for destroy
+  _window.on('resize', debounce(initScrollMonitor, 300))
 
   //////////
   // COMMON
@@ -57,12 +56,21 @@ $(document).ready(function(){
     .on('click', '.header__menu a', function() {
       closeMobileMenu();
       var el = $(this).attr('href');
-      $(this).parent().siblings().find('a').removeClass('active-link');
-      $(this).addClass('active-link');
+      // $(this).parent().siblings().find('a').removeClass('active-link');
+      // $(this).addClass('active-link');
       $('body, html').animate({
           scrollTop: $(el).offset().top}, 1000);
       return false;
-    });
+    })
+    .on('click', '.mobile-navi__menu a', function(){
+      closeMobileMenu();
+      var el = $(this).attr('href');
+      // $(this).parent().siblings().find('a').removeClass('active-link');
+      // $(this).addClass('active-link');
+      $('body, html').animate({
+          scrollTop: $(el).offset().top - $('.header').height()}, 1000);
+      return false;
+    })
 
 
   // HEADER SCROLL
@@ -124,6 +132,109 @@ $(document).ready(function(){
     $('.mobile-navi').removeClass('is-active');
   }
 
+
+  //////////
+  // CALCULATE LOGIC
+  //////////
+  function numberWithSpace(x){
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+  // $.fn.digits = function(){
+  //   return this.each(function(){
+  //     $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") );
+  //   })
+  // }
+
+  var curCalcPrice, curCreditPrice
+
+  $('[js-calculateForm]').on('change', function(e){
+    var $form = $(this);
+    var calcPrice = $form.find('.form__result-title i')
+    var calcCreditPrice = $form.find('.form__result-subtitle i')
+
+    var calcType = $form.find('select[name="house"]').val()
+    var calcSquare = $form.find('input[name="square"]').val()
+    var calcMaterial = $form.find('select[name="material"]').val()
+    var calcWarming = $form.find('input[name="warming"]').is(':checked')
+
+    var basePrice = 1000 // rub, per square meter
+    var yearlyInterest = 14 // percent
+    var resultPrice = basePrice
+
+    // first up for saved numbers
+    curCalcPrice = parseInt(calcPrice.html().replace(/ /g, ''))
+    curCreditPrice = parseInt(calcCreditPrice.html().replace(/ /g, ''))
+
+    // console.log(
+    //   'calcType', calcType,
+    //   'calcSquare', calcSquare,
+    //   'calcMaterial', calcMaterial,
+    //   'calcWarming', calcWarming
+    // )
+
+    if ( calcType == "Загородный дом" ){
+      resultPrice = resultPrice + 500
+    } else if ( calcType == "Котедж" ){
+      resultPrice = resultPrice + 1000
+    } else if ( calcType == "Вилла" ){
+      resultPrice = resultPrice + 2500
+    } else if ( calcType == "Особняк" ){
+      resultPrice = resultPrice + 5000
+    }
+
+    if ( calcMaterial == "Дерево" ){
+      resultPrice = resultPrice + 400
+    } else if ( calcMaterial == "Кирпич" ){
+      resultPrice = resultPrice + 250
+    } else if ( calcMaterial == "Штукатурка" ){
+      resultPrice = resultPrice + 150
+    }
+
+
+    if ( calcSquare > 0 ){
+      resultPrice = resultPrice * Math.abs(calcSquare)
+    }
+
+    // bouns price for volume ?
+    if ( calcSquare > 100) {
+      resultPrice = resultPrice * 0.85
+    }
+    if ( calcSquare > 200) {
+      resultPrice = resultPrice * 0.8
+    }
+
+    if (calcWarming){
+      resultPrice = resultPrice + 5000
+    }
+
+    // update html
+    var creditPrice = Math.floor((resultPrice * (1 + (yearlyInterest/100))) / 12)
+
+    console.log(curCalcPrice, resultPrice)
+    calcPrice.prop('Counter',curCalcPrice).animate({
+      Counter: resultPrice
+    }, {
+      duration: 600,
+      easing: 'swing',
+      step: function (now) {
+        $(this).html(numberWithSpace(Math.floor(now)));
+      }
+    });
+
+    calcCreditPrice.prop('Counter',curCreditPrice).animate({
+      Counter: creditPrice
+    }, {
+      duration: 600,
+      easing: 'swing',
+      step: function (now) {
+        $(this).html(numberWithSpace(Math.floor(now)));
+      }
+    });
+
+
+  })
+
+
   //////////
   // SLIDERS
   //////////
@@ -135,38 +246,76 @@ $(document).ready(function(){
     // other individual sliders goes here
 
     // Materials carousel
-    var swiper = new Swiper ('.materials__carousel', {
+    var materialsSwiperOptions = {
       wrapperClass: "swiper-wrapper",
       slideClass: "materials__item",
       direction: 'horizontal',
-      slidesPerView: 'auto',
-      watchOverflow: true,
+      slidesPerView: 5,
       spaceBetween: 0,
+      watchOverflow: true,
       freeMode: false,
       // Responsive breakpoints
+      navigation: {
+        nextEl: '.material-next',
+        prevEl: '.material-prev',
+      },
       breakpoints: {
         // works as max-width prop
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10
+        568: {
+          slidesPerView: 1
         },
         768: {
-          slidesPerView: 2,
-          spaceBetween: 20
+          slidesPerView: 2
         },
         992: {
           slidesPerView: 3
+        },
+        1100: {
+          slidesPerView: 4
         }
       }
-    })
+    }
 
+    var swiperMaterials = undefined
+
+    function checkSwiperMaterials(){
+      if ( _window.width() < 568 && swiperMaterials !== undefined) {
+        swiperMaterials.destroy();
+        swiperMaterials = undefined
+      } else if ( _window.width() > 568 && swiperMaterials === undefined ) {
+        swiperMaterials = new Swiper ('.materials__carousel', materialsSwiperOptions)
+      }
+    }
+
+    _window.on('resize', debounce(checkSwiperMaterials, 300));
+    checkSwiperMaterials();
+
+
+    var iconBreakpoints = {
+      375: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 0
+      },
+      568: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      }
+    }
     // Why carousel
-    var swiper = new Swiper ('.why__carousel', {
+    var swiperWhy = new Swiper ('.why__carousel', {
       wrapperClass: "swiper-wrapper",
       slideClass: "why__item",
       direction: 'horizontal',
       loop: false,
-      watchOverflow: false,
+      watchOverflow: true,
       // setWrapperSize: true,
       spaceBetween: 0,
       slidesPerView: 5,
@@ -174,26 +323,15 @@ $(document).ready(function(){
       // centeredSlides: true,
       freeMode: false,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.why-next',
+        prevEl: '.why-prev',
       },
       // Responsive breakpoints
-      breakpoints: {
-        // when window width is <= 320px
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
-        // when window width is <= 480px
-        480: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        }
-      }
+      breakpoints: iconBreakpoints
     })
 
     // Steps of work carousel
-    var swiper = new Swiper ('.steps__carousel', {
+    var swiperSteps = new Swiper ('.steps__carousel', {
       wrapperClass: "swiper-wrapper",
       slideClass: "why__item",
       direction: 'horizontal',
@@ -206,104 +344,130 @@ $(document).ready(function(){
       // centeredSlides: true,
       freeMode: false,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.steps-next',
+        prevEl: '.steps-prev',
       },
       // Responsive breakpoints
-      breakpoints: {
-        // when window width is <= 568px
-        568: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
-        // when window width is <= 768px
-        769: {
-          slidesPerView: 3,
-          spaceBetween: 25
-        }
-      }
-    })
-
-    // work example carousel
-    $('.works__example').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      draggable: false,
-      prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: true,
-            draggable: true,
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 568,
-          settings: {
-            arrows: true,
-            slidesToShow: 1
-          }
-        }
-      ]
-    })
-
-    // Review carousel
-    $('.reviews__carousel').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      arrows: true,
-      prevArrow: slickNextArrow,
-      nextArrow: slickPrevArrow,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: true,
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 568,
-          settings: {
-            arrows: true,
-            slidesToShow: 1
-          }
-        }
-      ]
+      breakpoints: iconBreakpoints
     })
 
     // Credit carousel
-    var swiper = new Swiper ('.credit__carousel', {
+    var creditSwiperOptions = {
       wrapperClass: "swiper-wrapper",
       slideClass: "why__item",
       direction: 'horizontal',
+      watchOverflow: true,
+      slidesPerView: 'auto',
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.credit-next',
+        prevEl: '.credit-prev',
       },
       // Responsive breakpoints
       breakpoints: {
-        // when window width is <= 568px
-        568: {
+        375: {
           slidesPerView: 1,
           spaceBetween: 10
+        },
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        786: {
+          slidesPerView: 3,
+          spaceBetween: 20
         }
       }
-    })
+    }
+
+    var swiperCredit = undefined
+
+    function checkSwiperCredit(){
+      if ( _window.width() > 768 && swiperCredit !== undefined) {
+        swiperCredit.destroy();
+        swiperCredit = undefined
+      } else if ( _window.width() < 768 && swiperCredit === undefined ) {
+        swiperCredit = new Swiper ('.credit__carousel', creditSwiperOptions)
+      }
+    }
+
+    _window.on('resize', debounce(checkSwiperCredit, 300));
+    checkSwiperCredit();
+
+
+    // work example carousel
+    var swiperWork = new Swiper ('.works__example', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "works__example-slide",
+      direction: 'horizontal',
+      watchOverflow: true,
+      slidesPerView: 4,
+      spaceBetween: 30,
+      noSwipingClass: "slide__compare",
+      navigation: {
+        nextEl: '.works-next',
+        prevEl: '.works-prev',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        1150: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
+    });
+
+    // Review carousel
+    var swiperTestimonials = new Swiper ('.reviews__carousel', {
+      wrapperClass: "swiper-wrapper",
+      slideClass: "reviews__carousel-item",
+      direction: 'horizontal',
+      watchOverflow: true,
+      slidesPerView: 3,
+      spaceBetween: 25,
+      navigation: {
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    });
 
   }
 
   // Accordion for materials om mobile
-  $('.materials__accordion .materials__item').on('click' , toggleAccordion);
+  $('.materials__item').on('click' , function(){
+    if ( _window.width() < 568 ){
+      $('.materials__item').not($(this)).removeClass('is-show');
+      $(this).addClass('is-show');
+    }
+  });
 
-  function toggleAccordion() {
-    $('.materials__accordion .materials__item').not($(this)).removeClass('is-show');
-    $(this).addClass('is-show');
-  }
+  _window.on('resize', debounce(function(){
+    if ( _window.width() > 568 ){
+      $('.materials__item').removeClass('is-show');
+    }
+  }, 300));
 
   //////////
   // MODALS
@@ -320,24 +484,15 @@ $(document).ready(function(){
       fixedContentPos: true,
       fixedBgPos: true,
       overflowY: 'auto',
-      closeBtnInside: true,
+      closeBtnInside: false,
       preloader: false,
       midClick: true,
       removalDelay: 300,
       mainClass: 'popup-fade',
-      callbacks: {
-        beforeOpen: function() {
-          // startWindowScroll = _window.scrollTop();
-          // $('html').addClass('mfp-helper');
-        }
-      },
       patterns: {
         youtube: {
           index: 'youtube.com/',
           id: 'v=', // String that splits URL in a two parts, second part should be %id%
-          // Or null - full URL will be returned
-          // Or a function that should return %id%, for example:
-          // id: function(url) { return 'parsed id'; }
           src: '//www.youtube.com/embed/%id%?autoplay=1&controls=0&showinfo=0' // URL that will be set as a source for iframe.
         }
       },
@@ -360,7 +515,10 @@ $(document).ready(function(){
     });
   }
 
+  $('.mfp-close').on('click', closeMfp)
+
   function closeMfp(){
+    console.log('cliso')
     $.magnificPopup.close();
   }
 
@@ -422,6 +580,8 @@ $(document).ready(function(){
       }, 150, {
         'leading': true
       }));
+      // uncomment if you want fadeOut effect on scrollOut
+
       // elWatcher.exitViewport(throttle(function() {
       //   $(el).removeClass(animationClass);
       //   $(el).css({
@@ -454,27 +614,5 @@ $(document).ready(function(){
   }
 
   initMap();
-
-  //////////
-  // DEVELOPMENT HELPER
-  //////////
-  function setBreakpoint(){
-    var wHost = window.location.host.toLowerCase()
-    var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
-    if (displayCondition){
-      console.log(displayCondition)
-      var wWidth = _window.width();
-
-      var content = "<div class='dev-bp-debug'>"+wWidth+"</div>";
-
-      $('.page').append(content);
-      setTimeout(function(){
-        $('.dev-bp-debug').fadeOut();
-      },1000);
-      setTimeout(function(){
-        $('.dev-bp-debug').remove();
-      },1500)
-    }
-  }
 
 });

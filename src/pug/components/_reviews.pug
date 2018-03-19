@@ -3,27 +3,31 @@
   .container
     h1.text-center.wow Отзывы довольных клиентов
 
-    .reviews__carousel
-      div.reviews__carousel-item.wow(data-animation-delay=".1s")
-        a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
-          i.icon.icon-play-icon
-          i.icon.icon-play-icon-active
-          img(src="img/review-1.jpg", alt="review")
+    .reviews__carousel.swiper-container
+      .swiper-wrapper
+        .reviews__carousel-item.wow(data-animation-delay=".1s")
+          a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
+            i.icon.icon-play-icon
+            i.icon.icon-play-icon-active
+            img(src="img/review-1.jpg", alt="review")
 
-      div.reviews__carousel-item.wow(data-animation-delay=".2s")
-        a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
-          i.icon.icon-play-icon
-          i.icon.icon-play-icon-active
-          img(src="img/review-2.jpg", alt="review")
+        .reviews__carousel-item.wow(data-animation-delay=".2s")
+          a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
+            i.icon.icon-play-icon
+            i.icon.icon-play-icon-active
+            img(src="img/review-2.jpg", alt="review")
 
-      div.reviews__carousel-item.wow(data-animation-delay=".3s")
-        a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
-          i.icon.icon-play-icon
-          i.icon.icon-play-icon-active
-          img(src="img/review-3.jpg", alt="review")
+        .reviews__carousel-item.wow(data-animation-delay=".3s")
+          a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
+            i.icon.icon-play-icon
+            i.icon.icon-play-icon-active
+            img(src="img/review-3.jpg", alt="review")
 
-      div.reviews__carousel-item.wow(data-animation-delay=".4s")
-        a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
-          i.icon.icon-play-icon
-          i.icon.icon-play-icon-active
-          img(src="img/review-1.jpg", alt="review")
+        .reviews__carousel-item.wow(data-animation-delay=".4s")
+          a(href="http://www.youtube.com/watch?v=Km5OTsyZkJE").review__play
+            i.icon.icon-play-icon
+            i.icon.icon-play-icon-active
+            img(src="img/review-1.jpg", alt="review")
+              
+    .swiper-button-prev.reviews-prev
+    .swiper-button-next.reviews-next

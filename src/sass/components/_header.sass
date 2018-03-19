@@ -5,7 +5,7 @@
   right: 0
   left: 0
   background: #fff
-  z-index: 10
+  z-index: 11
   &__wrapper
     display: flex
     align-items: center
@@ -27,6 +27,10 @@
   &__phone
     margin-left: auto
     display: none
+    font-size: 24px
+    color: #334e9a
+    &:hover
+      color: $colorOrange
 
   &__menu
     flex: 1 1 auto
@@ -133,10 +137,12 @@
 
 +r(1250)
   .header
-    &__menu li
-      margin: 0 10px
+    &__menu
+      margin: 0 0px 0 20px
+      li
+        margin: 0 11px
 
-+r(1200)
++r(1199)
   .header
     &__menu
       display: none
@@ -154,3 +160,15 @@
 
   .mobile-navi__phone
     display: block
+
++r(414)
+  .header
+    &__hamburger
+      padding-left: 8px
+    &__logo
+      flex-basis: 160px
+      flex-shrink: 1
+      max-width: 160px
+      .icon
+        transform: scale(0.63)
+        transform-origin: left center

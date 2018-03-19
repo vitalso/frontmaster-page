@@ -1,129 +1,169 @@
 /* Materials variant
 .materials
+  position: relative
   padding: 50px 0 75px 0
+  background: white
   &__carousel
     overflow: visible
   &__item
+    flex: 0 0 auto
     display: flex
     flex-direction: column
-    // width: 100%
-    // max-width: 240px
-    // min-width: 240px
-    flex: 0 0 240px
+    padding-left: 10px
+    padding-right: 10px
     position: relative
     cursor: pointer
 
-    &__info
+    &-info
       flex: 1 1 auto
       display: flex
       flex-direction: column
       padding-top: 20px
-      background: rgba(255, 255, 255, .96)
-      border: 6px solid transparent
+      // margin-left: -10px
+      // margin-right: -10px
+      background: white
+      top: 0
+      left: 10px
+      right: 10px
+      pointer-events: none
+      &::before
+        display: inline-block
+        content: ' '
+        position: absolute
+        top: 0
+        bottom: 0
+        left: -7%
+        right: -7%
+        z-index: 1
+        background: white
+        opacity: 0
+        pointer-events: none
+        border: 6px solid transparent
+        transition: .25s $ease
 
     &-icon
-      z-index: 1
+      position: relative
+      z-index: 2
+      pointer-events: none
+      user-select: none
+      width: 100%
+      font-size: 0
+      margin-bottom: 7px
       & + p
-        min-height: 36px
+        flex: 1 1 auto
+        position: relative
+        z-index: 2
+        min-height: 48px
+        line-height: 1.5
         font-weight: 600
       img
         max-width: 100%
 
-    &__description
-      // align btn to slide bottom
+    &-description
+      position: relative
+      z-index: 2
       margin-top: auto
       font-size: 14px
       line-height: 24px
       opacity: 0
       height: 0
-      transition: opacity .25s $ease
+      transform: translate(0,20px)
+      transition: .25s $ease
 
     &:hover
       z-index: 2
-      .materials__item__info
-        width: 114%
-        top: 0
-        left: -7%
-        border-color: $grayColor
+      .materials__item-info
         position: absolute
+        pointer-events: all
+        &::before
+          opacity: 1
+          border-color: $grayColor
 
-      .materials__item__description
+      .materials__item-description
         opacity: 1
+        transform: translate(0,0px)
         height: auto
 
-  .swiper-button-next , .swiper-button-prev
-    // display: none
 
-.swiper-button-prev
-  left: -30px
-  background-image: url('../img/icon-arrow-left.png')
-
-.swiper-button-next
-  right: -30px
-  background-image: url('../img/icon-arrow-right.png')
-
-// Accordion with materials on mobile
-.materials__accordion
+.materials__arrow
   display: none
+  position: absolute
+  right: 30px
+
++r($desktop)
+  .materials
+    padding-bottom: 50px
+    &__item-info
+      border-width: 0
+    &__item:hover
+      .materials__item-info
+        position: relative
+        left: 0
+        right: 0
+        // width: 100%
+        // left: auto
+        &::before
+          border-color: transparent
+
+    &__item-description
+      opacity: 1
+      height: auto
+      transform: translate(0,0)
+
++r($tablet)
+  .materials
+
+
+
++r($mobile)
+  .materials
+    padding-top: 20px
+    .swiper-wrapper
+      flex-direction: column
+
+  .materials__arrow
+    display: inline-block
+
   .materials__item
     border-top: 1px solid $borderInput
-    .materials__item__description , .materials__item-icon
+    &:hover
+      .materials__item-description
+        opacity: 0
+        height: 0
+      .materials__arrow
+        right: 20px
+    .materials__item-description, .materials__item-icon
       opacity: 0
       height: 0
-    .materials__item__info
+    .materials__item-info
       padding-left: 30px
       padding-right: 30px
       padding-bottom: 20px
+      &::before
+        display: none
     .materials__item-icon + p
       min-height: 0
       margin: 0
       text-align: left
+    .materials__item-description
+      .btn-primary
+        width: 100%
+        text-align: center
   // is-show class for materials__item
   .materials__item.is-show
-    .materials__item__description , .materials__item-icon
+    .materials__item-description , .materials__item-icon
       opacity: 1
       height: auto
     .materials__item-icon + p
-      margin: 40px 0 20px 0
-    .materials__item__description p
+      margin: 20px 0 20px 0
+    .materials__item-description p
       text-align: left
     .materials__arrow
       top: 180px
       transform: rotate(-180deg)
 
-.materials__arrow
-  position: absolute
-  right: 30px
-
-+r($min-wide)
++r(414)
   .materials
-    &__item__info
-      border-width: 0
-    &__item:hover
-      .materials__item__info
-        width: 100%
-        left: auto
-        border-color: transparent
-        position: relative
-
-    &__item__description
-      opacity: 1
-      height: auto
-
-+r($desktop)
-
-+r($tablet)
-  .materials
-    .swiper-button-next , .swiper-button-prev
-      display: block
-
-+r($mobile)
-  .materials__carousel
-    display: none
-  .materials__accordion
-    display: block
-
-  .swiper-button-prev
-    left: -20px
-  .swiper-button-next
-    right: -20px
+    .materials__item
+      margin-left: -30px
+      margin-right: -30px

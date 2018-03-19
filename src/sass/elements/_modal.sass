@@ -54,7 +54,10 @@ html.mfp-helper
   margin: auto
   justify-content: center
 
-
+.mfp-iframe-scaler
+  flex: 0 0 auto
+  height: auto
+  position: relative
 // Callback popup
 .callback__cta
   max-width: 620px
@@ -64,7 +67,7 @@ html.mfp-helper
     font-size: 45px
     line-height: 55px
     font-weight: 900
-  .banner__form__el
+  .banner__form-el
     .w-300
       width: 300px
     &.margin-top-50
@@ -90,14 +93,14 @@ html.mfp-helper
     font-weight: 600
 
 .mfp-iframe-scaler .mfp-close
-  display: none
+  // display: none
 
 // Detail popup
 .detail__cta
   max-width: 950px
   margin: 0 auto
   color: #fff
-  .banner__form__el
+  .banner__form-el
     .w-300
       width: 300px
     &.margin-top-50
@@ -109,21 +112,31 @@ button.mfp-close
   font-size: 30px
   color: white !important
   opacity: 1
+  pointer-events: all
   transition: .25s $ease
+  svg
+    pointer-events: none
   &:hover
     transform: scale(1.2)
-
+  &:active
+    top: 60px
+  +r($mobile)
+    right: 25px
+    top: 30px
+    &:active
+      top: 30px
 +r(950)
   .detail__cta
     max-width: 270px
-    .banner__form__row
+    .banner__form-row
       flex-direction: column
 
 +r($tablet)
   .callback__cta
     max-width: 270px
-    .banner__form__row
+    .banner__form-row
       flex-direction: column
+
     .callback__title
       font-size: 34px
       line-height: 44px
@@ -137,3 +150,15 @@ button.mfp-close
     .privacy__subtitle
       font-size: 16px
       line-height: 24px
+  .callback__cta, .detail__cta
+    .banner__form-row
+      .banner__form-el
+        max-width: 100%
+        width: 100%
+        .w-300
+          width: 100%
+    .banner__form-el
+      max-width: 100%
+      width: 100%
+      .w-300
+        width: 100%

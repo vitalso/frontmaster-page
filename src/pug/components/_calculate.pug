@@ -4,33 +4,33 @@
     h1.text-center.color-white.wow Расчет стоимости монтажа
     .wrapper
 
-      form(action="#").calculate__form.wow(data-animation-delay=".1s")
-        .banner__form__el.position-relative
+      form(action="#" js-calculateForm).calculate__form.wow(data-animation-delay=".1s")
+        .banner__form-el.position-relative
           select(name="house")
             option(value="Загородный дом") Загородный дом
             option(value="Котедж") Котедж
             option(value="Вилла") Вилла
             option(value="Особняк") Особняк
-        .banner__form__row
-          .banner__form__el
-            input(type="text", name="square" , placeholder="Площадь фасада").form__el-custom-size
+        .banner__form-row
+          .banner__form-el
+            input(type="text", name="square" , placeholder="Площадь фасада").form-el-custom-size
             span.square__number кв.м
-          .banner__form__el.position-relative
+          .banner__form-el.position-relative
             select(name="material")
               option(value="Материал") Материал
               option(value="Дерево") Дерево
               option(value="Кирпич") Кирпич
               option(value="Штукатурка") Штукатурка
-        .banner__form__el
-          input(type="checkbox" , value="Нужно утепление" , id="checkbox-5")
+        .banner__form-el
+          input(type="checkbox" , value="Нужно утепление" , name="warming", id="checkbox-5")
           span
           label(for="checkbox-5") Нужно утепление
-        .banner__form__result.text-center
-          p.form__result-title Стоимость: <strong>от 40 000 рублей</strong>
-          p.form__result-subtitle В кредит от 3600 рублей в месяц
-        .banner__form__el.form__el-size
-          input(type="checkbox" , value="Согласен на обработку данных" , id="checkbox-6" , checked)
+        .banner__form-result.text-center
+          p.form__result-title Стоимость: <br><strong>от <i>1 500</i> рублей</strong>
+          p.form__result-subtitle В кредит от <i>142</i> рублей в месяц
+        .banner__form-el.form-el-size
+          input(type="checkbox" , value="Согласен на обработку данных" , id="agree_2" name="agree_2" , checked)
           span
-          label(for="checkbox-6") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
-        .banner__form__el.banner__form-cta
+          label(for="agree_2") Я согласен на <a href="#privacy" class="personal__data">обработку моих персональных данных</a>
+        .banner__form-el.banner__form-cta
           input(type="submit" , value="ОТПРАВИТЬ ЗАЯВКУ")
